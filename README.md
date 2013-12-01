@@ -37,6 +37,14 @@ subview.centerX = self.view.centerX[UILayoutPriorityDefaultLow];
 
 The argument between the brackets should be a UILayoutPriority, which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
 
+Installation
+=================
+
+To use JGLayoutDotSyntax with your project, you simply need to add the neccessary files to your project and import JGLayoutDotSyntax.h. It's as simple as that!
+
+Example
+=================
+
 In order to better illustrate how JGLayoutDotSyntax is to be used, an example project is included that makes use of this syntax. Below is the relavent section of the example project:
 
 ```
