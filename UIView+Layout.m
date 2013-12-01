@@ -12,6 +12,8 @@
 
 @dynamic left, right, top, bottom, leading, trailing, width, height, centerX, centerY, baseline;
 
+#pragma mark - Getters
+
 -(id)left{
     return [JGLayoutParameter layoutParameterWithObject:self attribute:NSLayoutAttributeLeft];
 }
@@ -55,6 +57,8 @@
 -(id)baseline{
     return [JGLayoutParameter layoutParameterWithObject:self attribute:NSLayoutAttributeBaseline];
 }
+
+#pragma mark - Setters
 
 -(void)setLeft:(id)left{
     [self addLayoutConstraintWithAttribute:NSLayoutAttributeLeft parameter:left];
@@ -100,20 +104,34 @@
     [self addLayoutConstraintWithAttribute:NSLayoutAttributeBaseline parameter:baseline];
 }
 
+#pragma mark - Adding Constraint
+
+// parameter argument may be either a JGLayoutParameter or a NSNumber
 -(void)addLayoutConstraintWithAttribute:(NSLayoutAttribute)attribute parameter:(id)theParameter{
     JGLayoutParameter *parameter;
+    
+    //Checks class of parameter input
     if ([theParameter isKindOfClass:[JGLayoutParameter class]]) {
         parameter = (JGLayoutParameter*)theParameter;
     }
     else if([theParameter isKindOfClass:[NSNumber class]]){
+        // Creates a JGLayoutParameter out of NSNumber input
         parameter = [JGLayoutParameter constant:[(NSNumber*)theParameter floatValue]];
     }
     else{
-        NSLog(@"Bad parameter type.");
+        [NSException raise:@"Bad parameter input." format:@"Parameter input must be either a NSNumber or a JGLayoutParameter."];
     }
+    
+    // Gets pointer to the view to which the NSLayoutConstraint should be added
     UIView *receiver = parameter.object?[UIView nearestCommonView:@[self,parameter.object]]:self;
+    
+    // Creates constraint
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:parameter.relation toItem:parameter.object attribute:parameter.attribute multiplier:parameter.multiplier constant:parameter.constant];
+    
+    // Sets priority, if specified
     if (parameter.priority) constraint.priority = parameter.priority;
+    
+    // Adds constraint
     [receiver addConstraint:constraint];
 }
 
