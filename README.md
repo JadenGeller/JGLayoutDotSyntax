@@ -7,12 +7,65 @@ Format
 =================
 
 Layout constraints can be specified simply and easily using reading dot syntax. The lenghty, hard-to-understand layout code
-'''    
+
+```
 [self.view addConstraint:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-'''
+```
+
 can be rewritten in a short, simple, easily understood format using JGLayoutDotSyntax:
-'''
+
+```
 subview.centerX = self.view.centerX;
-'''
+```
+
 
 Conventional methods of creating autolayout constraints simply obfuscuate the intent, causing difficult to read and often buggy code. JGLayoutDotSyntax aims to fix that. The advantages achieved are even more stunning when you realize that each subview usually has about four NSLayoutConstraints created to define its location.
+
+JGLayoutDotSyntax supports all features that NSLayoutConstraint does, including constants, multipliers, and priority. Because of the limitations of Objective-C, constants can not simply be added with the plus symbol. Instead, JGLayoutParameter implements an add method that can be used as follows:
+
+```
+subview.left = [self.view.left add:10];
+```
+
+The add method takes a CGFloat as an input argument and sets it as the NSLayoutConstraint's constant. Similiarly, multipliers can be specified with the muliply method and different relationships, such as NSLayoutRelationGreaterThanOrEqual, can be specified using the withRelation method. For more info, refer to the documentation in the JGLayoutConstruction.h file.
+
+Additionally, JGLayoutDotSyntax allows priority to be specified. In favor of concision, a slightly irregular syntax is used. After a JGLayoutParameter, square backets can be used to specifiy priority of a constraint, if needed. For example, we can lower the priority of centering our subview:
+
+```
+subview.centerX = self.view.centerX[UILayoutPriorityDefaultLow];
+```
+
+The argument between the brackets should be a UILayoutPriority, which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
+
+In order to better illustrate how JGLayoutDotSyntax is to be used, an example project is included that makes use of this syntax. Below is the relavent section of the example project:
+
+```
+float size = 40;
+float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+
+purpleView.width = @(2*size);
+purpleView.height = @(2*size);
+purpleView.right = self.view.right;
+purpleView.top = [self.view.top add:statusBarHeight];
+
+blueView.left = self.view.left;
+blueView.centerY = self.view.centerY;
+blueView.height = @(size);
+blueView.width = @190;
+
+redView.width = @(size);
+redView.height = @(size);
+redView.centerX = self.view.centerX[UILayoutPriorityDefaultHigh];
+redView.centerY = self.view.centerY;
+redView.left = [[blueView.right add:10] withRelation:NSLayoutRelationGreaterThanOrEqual];
+
+yellowView.left = [blueView.left add:10];
+yellowView.right = [blueView.right add:-10];
+yellowView.top = [blueView.top add:10];
+yellowView.bottom = [blueView.bottom add:-10];
+
+greenView.bottom = self.view.bottom;
+greenView.height = [self.view.height multiply:.2];
+greenView.left = self.view.left;
+greenView.right = self.view.right;
+```
