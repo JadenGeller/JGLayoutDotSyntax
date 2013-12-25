@@ -77,3 +77,7 @@ greenView.height = [self.view.height multiply:.2];
 greenView.left = self.view.left;
 greenView.right = self.view.right;
 ```
+
+Displayed a portrait-oriented 3.5" iPhone, the above layout would look like the image below:
+
+![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout.png?raw=true)
