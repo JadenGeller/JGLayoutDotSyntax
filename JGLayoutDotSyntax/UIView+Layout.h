@@ -162,4 +162,17 @@
  */
 @property (nonatomic) id baseline;
 
+/** Convenience method for setting the top, bottom, left, and right alginment of the reciever to be that of the view argument.
+ 
+ @code
+ 
+ [viewA matchFrame:viewB]; // sets viewA's top, bottom, left, and right to that of viewB
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+ */
+-(void)matchAligment:(UIView*)view;
+
 @end

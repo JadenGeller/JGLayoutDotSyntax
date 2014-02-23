@@ -183,4 +183,11 @@
     return count;
 }
 
+-(void)matchAligment:(UIView*)view{
+    self.left = view.left;
+    self.right = view.right;
+    self.top = view.top;
+    self.bottom = view.bottom;
+}
+
 @end
