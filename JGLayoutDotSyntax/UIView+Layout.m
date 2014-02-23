@@ -190,4 +190,9 @@
     self.bottom = view.bottom;
 }
 
+-(void)matchSize:(UIView *)view{
+    self.width = view.width;
+    self.right = view.right;
+}
+
 @end

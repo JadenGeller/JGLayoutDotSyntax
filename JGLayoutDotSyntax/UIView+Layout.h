@@ -166,7 +166,7 @@
  
  @code
  
- [viewA matchFrame:viewB]; // sets viewA's top, bottom, left, and right to that of viewB
+ [viewA matchAligment:viewB]; // sets viewA's top, bottom, left, and right to that of viewB
  
  @endcode
  
@@ -174,5 +174,18 @@
  
  */
 -(void)matchAligment:(UIView*)view;
+
+/** Convenience method for setting the width and height alginment of the reciever to be that of the view argument.
+ 
+ @code
+ 
+ [viewA matchSize:viewB]; // sets viewA's width and height to that of viewB
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+ */
+-(void)matchSize:(UIView*)view;
 
 @end
