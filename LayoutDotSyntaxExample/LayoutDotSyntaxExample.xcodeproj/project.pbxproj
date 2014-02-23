@@ -22,9 +22,9 @@
 		D70B337B184AB62600807CBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70B335A184AB62600807CBC /* UIKit.framework */; };
 		D70B3383184AB62600807CBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D70B3381184AB62600807CBC /* InfoPlist.strings */; };
 		D70B3385184AB62600807CBC /* LayoutDotSyntaxExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B3384184AB62600807CBC /* LayoutDotSyntaxExampleTests.m */; };
-		D70B3396184AB66700807CBC /* JGLayoutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B3391184AB66700807CBC /* JGLayoutParameter.m */; };
-		D70B3397184AB66700807CBC /* NSNumber+LayoutConstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B3393184AB66700807CBC /* NSNumber+LayoutConstruction.m */; };
-		D70B3398184AB66700807CBC /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D70B3395184AB66700807CBC /* UIView+Layout.m */; };
+		D7A3E1FA18BA109C00A92210 /* JGLayoutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F518BA109C00A92210 /* JGLayoutParameter.m */; };
+		D7A3E1FB18BA109C00A92210 /* NSNumber+LayoutConstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */; };
+		D7A3E1FC18BA109C00A92210 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F918BA109C00A92210 /* UIView+Layout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,14 +58,14 @@
 		D70B3380184AB62600807CBC /* LayoutDotSyntaxExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LayoutDotSyntaxExampleTests-Info.plist"; sourceTree = "<group>"; };
 		D70B3382184AB62600807CBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D70B3384184AB62600807CBC /* LayoutDotSyntaxExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayoutDotSyntaxExampleTests.m; sourceTree = "<group>"; };
-		D70B338E184AB66700807CBC /* JGLayoutConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGLayoutConstruction.h; path = ../../JGLayoutConstruction.h; sourceTree = "<group>"; };
-		D70B338F184AB66700807CBC /* JGLayoutDotSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGLayoutDotSyntax.h; path = ../../JGLayoutDotSyntax.h; sourceTree = "<group>"; };
-		D70B3390184AB66700807CBC /* JGLayoutParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGLayoutParameter.h; path = ../../JGLayoutParameter.h; sourceTree = "<group>"; };
-		D70B3391184AB66700807CBC /* JGLayoutParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JGLayoutParameter.m; path = ../../JGLayoutParameter.m; sourceTree = "<group>"; };
-		D70B3392184AB66700807CBC /* NSNumber+LayoutConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+LayoutConstruction.h"; path = "../../NSNumber+LayoutConstruction.h"; sourceTree = "<group>"; };
-		D70B3393184AB66700807CBC /* NSNumber+LayoutConstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+LayoutConstruction.m"; path = "../../NSNumber+LayoutConstruction.m"; sourceTree = "<group>"; };
-		D70B3394184AB66700807CBC /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Layout.h"; path = "../../UIView+Layout.h"; sourceTree = "<group>"; };
-		D70B3395184AB66700807CBC /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Layout.m"; path = "../../UIView+Layout.m"; sourceTree = "<group>"; };
+		D7A3E1F218BA109C00A92210 /* JGLayoutConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGLayoutConstruction.h; sourceTree = "<group>"; };
+		D7A3E1F318BA109C00A92210 /* JGLayoutDotSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGLayoutDotSyntax.h; sourceTree = "<group>"; };
+		D7A3E1F418BA109C00A92210 /* JGLayoutParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGLayoutParameter.h; sourceTree = "<group>"; };
+		D7A3E1F518BA109C00A92210 /* JGLayoutParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGLayoutParameter.m; sourceTree = "<group>"; };
+		D7A3E1F618BA109C00A92210 /* NSNumber+LayoutConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+LayoutConstruction.h"; sourceTree = "<group>"; };
+		D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+LayoutConstruction.m"; sourceTree = "<group>"; };
+		D7A3E1F818BA109C00A92210 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		D7A3E1F918BA109C00A92210 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +95,7 @@
 		D70B334A184AB62500807CBC = {
 			isa = PBXGroup;
 			children = (
+				D7A3E1F118BA109C00A92210 /* JGLayoutDotSyntax */,
 				D70B335C184AB62600807CBC /* LayoutDotSyntaxExample */,
 				D70B337E184AB62600807CBC /* LayoutDotSyntaxExampleTests */,
 				D70B3355184AB62500807CBC /* Frameworks */,
@@ -131,7 +132,6 @@
 				D70B336B184AB62600807CBC /* Main_iPad.storyboard */,
 				D70B336E184AB62600807CBC /* JGViewController.h */,
 				D70B336F184AB62600807CBC /* JGViewController.m */,
-				D70B3399184AB66F00807CBC /* JGLayoutDotSyntax */,
 				D70B3371184AB62600807CBC /* Images.xcassets */,
 				D70B335D184AB62600807CBC /* Supporting Files */,
 			);
@@ -167,19 +167,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D70B3399184AB66F00807CBC /* JGLayoutDotSyntax */ = {
+		D7A3E1F118BA109C00A92210 /* JGLayoutDotSyntax */ = {
 			isa = PBXGroup;
 			children = (
-				D70B338F184AB66700807CBC /* JGLayoutDotSyntax.h */,
-				D70B338E184AB66700807CBC /* JGLayoutConstruction.h */,
-				D70B3390184AB66700807CBC /* JGLayoutParameter.h */,
-				D70B3391184AB66700807CBC /* JGLayoutParameter.m */,
-				D70B3392184AB66700807CBC /* NSNumber+LayoutConstruction.h */,
-				D70B3393184AB66700807CBC /* NSNumber+LayoutConstruction.m */,
-				D70B3394184AB66700807CBC /* UIView+Layout.h */,
-				D70B3395184AB66700807CBC /* UIView+Layout.m */,
+				D7A3E1F218BA109C00A92210 /* JGLayoutConstruction.h */,
+				D7A3E1F318BA109C00A92210 /* JGLayoutDotSyntax.h */,
+				D7A3E1F418BA109C00A92210 /* JGLayoutParameter.h */,
+				D7A3E1F518BA109C00A92210 /* JGLayoutParameter.m */,
+				D7A3E1F618BA109C00A92210 /* NSNumber+LayoutConstruction.h */,
+				D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */,
+				D7A3E1F818BA109C00A92210 /* UIView+Layout.h */,
+				D7A3E1F918BA109C00A92210 /* UIView+Layout.m */,
 			);
 			name = JGLayoutDotSyntax;
+			path = ../JGLayoutDotSyntax;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,10 +284,10 @@
 			files = (
 				D70B3363184AB62600807CBC /* main.m in Sources */,
 				D70B3370184AB62600807CBC /* JGViewController.m in Sources */,
-				D70B3398184AB66700807CBC /* UIView+Layout.m in Sources */,
-				D70B3396184AB66700807CBC /* JGLayoutParameter.m in Sources */,
+				D7A3E1FC18BA109C00A92210 /* UIView+Layout.m in Sources */,
+				D7A3E1FA18BA109C00A92210 /* JGLayoutParameter.m in Sources */,
 				D70B3367184AB62600807CBC /* JGAppDelegate.m in Sources */,
-				D70B3397184AB66700807CBC /* NSNumber+LayoutConstruction.m in Sources */,
+				D7A3E1FB18BA109C00A92210 /* NSNumber+LayoutConstruction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
