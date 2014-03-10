@@ -1,7 +1,7 @@
 Introduction
 =================
 
-JGLayoutDotSyntax provides classes and categories to make it easier to add NSLayoutConstraints. Rather than entering lengthy code that specifies the views, attributes, relationship, constant, and mulplier all in a single function (not to mention the reciever view that must add the constraint), JGLayoutDotSyntax allows relationships to be specified simply and concisely.
+JGLayoutDotSyntax provides classes and categories to make it easier to add NSLayoutConstraints. Rather than entering lengthy code that specifies the views, attributes, relationship, constant, and mulplier all in a single function (not to mention the reciever view that must add the constraint), JGLayoutDotSyntax allows relationships to be specified simply and concisely. Additionally, JGLayoutDotSyntax adds support for font size constraints by use of the JGDynamicSizeLabel subclass of UILabel. With this class, one can simply and set up the font size to adjust with the rest of the layout.
 
 Format
 =================
@@ -36,6 +36,16 @@ subview.centerX = self.view.centerX[UILayoutPriorityDefaultLow];
 ```
 
 The argument between the brackets should be a UILayoutPriority, which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
+
+Further, there exists convenience methods `matchAligment:` and `matchSize:` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
+
+One of the coolest parts of JGLayoutDotSyntax is the `JGDynamicSizeLabel` subclass of UILabel. With it, font sizes can be linked to layout constraints effortlessly. Check it out!
+
+```
+label.fontSize = [view.height multiply:.5];
+```
+
+In the above example, we set the label to have a font with half the value of view's height.
 
 Installation
 =================
