@@ -37,7 +37,7 @@ subview.centerX = self.view.centerX[UILayoutPriorityDefaultLow];
 
 The argument between the brackets should be a UILayoutPriority, which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
 
-Further, there exists convenience methods `matchAligment:` and `matchSize:` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
+Further, there exists convenience methods `matchAligment:` and `matchSize:` and `matchCenter:` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
 
 One of the coolest parts of JGLayoutDotSyntax is the `JGDynamicSizeLabel` subclass of UILabel. With it, font sizes can be linked to layout constraints effortlessly. Check it out!
 
