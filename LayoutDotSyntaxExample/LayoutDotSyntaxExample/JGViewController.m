@@ -39,12 +39,18 @@
     UIView *purpleView = [[UIView alloc] init];
     purpleView.backgroundColor = [UIColor purpleColor];
     purpleView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    JGDynamicSizeLabel *label = [[JGDynamicSizeLabel alloc]init];
+    label.translatesAutoresizingMaskIntoConstraints = NO;
+    label.text = @"Hello World";
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:0];
 
     [self.view addSubview:purpleView];
     [self.view addSubview:blueView];
     [self.view addSubview:greenView];
     [blueView addSubview:yellowView];
     [self.view addSubview:redView];
+    [greenView addSubview:label];
     
     //Set up layout constraints using dot syntax
     
@@ -76,6 +82,9 @@
     greenView.height = [self.view.height multiply:.2];
     greenView.left = self.view.left;
     greenView.right = self.view.right;
+    
+    [label matchAligment:greenView];
+    label.fontSize = [greenView.height multiply:.5];
     
 }
 

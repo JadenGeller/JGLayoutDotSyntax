@@ -66,5 +66,8 @@
     return self;
 }
 
+-(NSString*)description{
+    return [NSString stringWithFormat:@"<%@: %p; object = %@; constant = %f; multiplier = %f>",NSStringFromClass([self class]), self, self.object, self.constant, self.multiplier];
+}
 
 @end

@@ -25,6 +25,7 @@
 		D7A3E1FA18BA109C00A92210 /* JGLayoutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F518BA109C00A92210 /* JGLayoutParameter.m */; };
 		D7A3E1FB18BA109C00A92210 /* NSNumber+LayoutConstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */; };
 		D7A3E1FC18BA109C00A92210 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F918BA109C00A92210 /* UIView+Layout.m */; };
+		D7B8382318CCFF730014D768 /* JGDynamicSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B8382218CCFF730014D768 /* JGDynamicSizeLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+LayoutConstruction.m"; sourceTree = "<group>"; };
 		D7A3E1F818BA109C00A92210 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		D7A3E1F918BA109C00A92210 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		D7B8382118CCFF730014D768 /* JGDynamicSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGDynamicSizeLabel.h; path = ../LayoutDotSyntaxExample/JGDynamicSizeLabel.h; sourceTree = "<group>"; };
+		D7B8382218CCFF730014D768 /* JGDynamicSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JGDynamicSizeLabel.m; path = ../LayoutDotSyntaxExample/JGDynamicSizeLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,14 +173,16 @@
 		D7A3E1F118BA109C00A92210 /* JGLayoutDotSyntax */ = {
 			isa = PBXGroup;
 			children = (
-				D7A3E1F218BA109C00A92210 /* JGLayoutConstruction.h */,
 				D7A3E1F318BA109C00A92210 /* JGLayoutDotSyntax.h */,
+				D7A3E1F218BA109C00A92210 /* JGLayoutConstruction.h */,
 				D7A3E1F418BA109C00A92210 /* JGLayoutParameter.h */,
 				D7A3E1F518BA109C00A92210 /* JGLayoutParameter.m */,
 				D7A3E1F618BA109C00A92210 /* NSNumber+LayoutConstruction.h */,
 				D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */,
 				D7A3E1F818BA109C00A92210 /* UIView+Layout.h */,
 				D7A3E1F918BA109C00A92210 /* UIView+Layout.m */,
+				D7B8382118CCFF730014D768 /* JGDynamicSizeLabel.h */,
+				D7B8382218CCFF730014D768 /* JGDynamicSizeLabel.m */,
 			);
 			name = JGLayoutDotSyntax;
 			path = ../JGLayoutDotSyntax;
@@ -285,6 +290,7 @@
 				D70B3363184AB62600807CBC /* main.m in Sources */,
 				D70B3370184AB62600807CBC /* JGViewController.m in Sources */,
 				D7A3E1FC18BA109C00A92210 /* UIView+Layout.m in Sources */,
+				D7B8382318CCFF730014D768 /* JGDynamicSizeLabel.m in Sources */,
 				D7A3E1FA18BA109C00A92210 /* JGLayoutParameter.m in Sources */,
 				D70B3367184AB62600807CBC /* JGAppDelegate.m in Sources */,
 				D7A3E1FB18BA109C00A92210 /* NSNumber+LayoutConstruction.m in Sources */,

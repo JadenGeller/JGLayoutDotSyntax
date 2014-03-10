@@ -8,3 +8,4 @@
 #import "UIView+Layout.h"
 #import "NSNumber+LayoutConstruction.h"
 #import "JGLayoutParameter.h"
+#import "JGDynamicSizeLabel.h"

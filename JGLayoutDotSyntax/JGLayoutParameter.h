@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "JGLayoutConstruction.h"
 
-@interface JGLayoutParameter : NSNumber <JGLayoutConstruction>
+@interface JGLayoutParameter : NSObject <JGLayoutConstruction>
 
 @property (nonatomic, readonly) NSLayoutAttribute attribute;
 @property (nonatomic, readonly) NSLayoutRelation relation;
