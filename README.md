@@ -76,9 +76,12 @@ greenView.bottom = self.view.bottom;
 greenView.height = [self.view.height multiply:.2];
 greenView.left = self.view.left;
 greenView.right = self.view.right;
+
+[label matchAligment:greenView];
+label.fontSize = [greenView.height multiply:.5];
 ```
 
-Displayed a portrait-oriented 3.5" iPhone, the above layout would look like the image below:
+Displayed a portrait-oriented and a landscape oriented iPhone, the above layout would look like the images below:
 
-![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout_portrait.png?raw=true)
+![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout_portrait.png?raw=true)    
 ![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout_landscape.png?raw=true)
