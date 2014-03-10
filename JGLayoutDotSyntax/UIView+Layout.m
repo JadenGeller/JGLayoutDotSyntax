@@ -216,4 +216,9 @@
     self.right = view.right;
 }
 
+-(void)matchCenter:(UIView*)view{
+    self.centerX = view.centerX;
+    self.centerY = view.centerY;
+}
+
 @end

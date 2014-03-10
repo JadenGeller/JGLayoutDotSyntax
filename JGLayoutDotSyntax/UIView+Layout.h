@@ -188,4 +188,17 @@
  */
 -(void)matchSize:(UIView*)view;
 
+/** Convenience method for setting the centerX and centerY alginment of the reciever to be that of the view argument.
+ 
+ @code
+ 
+ [viewA matchCenter:viewB]; // sets viewA's centerX and centerY to that of viewB
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+ */
+-(void)matchCenter:(UIView*)view;
+
 @end
