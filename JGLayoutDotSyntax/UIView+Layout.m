@@ -106,8 +106,29 @@
 
 #pragma mark - Adding Constraint
 
+-(void)removeLayoutConstraintsForAttribute:(NSLayoutAttribute)attribute{
+    UIView *view = self;
+    
+    // Remove all constraints relating to self and attribute from all superviews of self
+    do {
+        for (NSLayoutConstraint *constraint in view.constraints) {
+            if (([constraint.firstItem isEqual:self] && constraint.firstAttribute == attribute) || ([constraint.secondItem isEqual:self] && constraint.secondAttribute == attribute)) {
+                [view removeConstraint:constraint];
+            }
+        }
+        view = view.superview;
+    } while (view.superview);
+}
+
 // parameter argument may be either a JGLayoutParameter or a NSNumber
 -(void)addLayoutConstraintWithAttribute:(NSLayoutAttribute)attribute parameter:(id)theParameter{
+    
+    [self removeLayoutConstraintsForAttribute:attribute];
+    
+    if (!theParameter) {
+        return;
+    }
+    
     JGLayoutParameter *parameter;
     
     //Checks class of parameter input
