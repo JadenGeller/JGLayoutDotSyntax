@@ -10,11 +10,11 @@
 
 @interface JGDynamicSizeLabel : UILabel
 
-/** The font size of the lable. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the baseline of the object.
+/** The font size of the label. Used as a setter, this creates and adds a "constraint" based upon the specification of the assigned JGLayoutParameter. Can only be used with the width and the height attribute. Used as a getter, will return any associated constraint. If none exists, will return nil.
  
  @code
  
- viewA.baseline = viewB.baseline; // sets viewA's baseline to match that of viewB
+ label.fontSize = view.height; // sets viewA's baseline to match that of viewB
  
  @endcode
  

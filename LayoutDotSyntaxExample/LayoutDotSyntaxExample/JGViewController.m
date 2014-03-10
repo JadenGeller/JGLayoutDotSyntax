@@ -43,7 +43,7 @@
     JGDynamicSizeLabel *label = [[JGDynamicSizeLabel alloc]init];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.text = @"Hello World";
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:0];
+    label.textAlignment = NSTextAlignmentCenter;
 
     [self.view addSubview:purpleView];
     [self.view addSubview:blueView];

@@ -10,9 +10,6 @@
 #import "JGLayoutParameter.h"
 
 @interface JGDynamicSizeLabel ()
-{
-    UIFont *_font;
-}
 
 @property (nonatomic) JGLayoutParameter *parameter;
 
@@ -38,19 +35,6 @@
 }
 */
 
--(void)setFont:(UIFont *)font{
-    _font = font;
-    
-   // >> UPDATE FONT
-}
-
--(UIFont*)font{
-    if (!_font) {
-        _font = [super font];
-    }
-    return _font;
-}
-
 -(void)setParameter:(JGLayoutParameter *)parameter{
     if (_parameter) [self clean_JGDynamicSizeLabel];
     _parameter = parameter;
@@ -68,10 +52,13 @@
         }
         else [JGDynamicSizeLabel exception_JGDynamicSizeLabel];
     }
-    else if (!fontSizeMultiplier) [self clean_JGDynamicSizeLabel];
+    else if (!fontSizeMultiplier)self.parameter = nil;
     else [JGDynamicSizeLabel exception_JGDynamicSizeLabel];
-    
-    _fontSize = fontSizeMultiplier;
+}
+
+-(id)fontSize{
+    if (self.parameter) return self.parameter;
+    else return nil;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -97,7 +84,6 @@
 
 -(void)clean_JGDynamicSizeLabel{
     [[_parameter.object layer] removeObserver:self forKeyPath:@"bounds.size"];
-    [super setFont:self.font];
 }
 
 -(void)dealloc{
