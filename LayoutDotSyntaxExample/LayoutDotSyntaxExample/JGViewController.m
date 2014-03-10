@@ -20,6 +20,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.view.backgroundColor = [UIColor colorWithWhite:.9 alpha:1];
+    
     UIView *blueView = [[UIView alloc]init];
     blueView.backgroundColor = [UIColor blueColor];
     blueView.translatesAutoresizingMaskIntoConstraints = NO;

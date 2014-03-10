@@ -80,4 +80,5 @@ greenView.right = self.view.right;
 
 Displayed a portrait-oriented 3.5" iPhone, the above layout would look like the image below:
 
-![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout.png?raw=true)
+![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout_portrait.png?raw=true)
+![](https://github.com/JadenGeller/JGLayoutDotSyntax/blob/master/example_layout_landscape.png?raw=true)
