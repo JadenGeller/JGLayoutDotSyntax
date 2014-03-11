@@ -11,6 +11,5 @@
 @interface NSObject (DynamicConstraint)
 
 -(id)constraintForKeyPath:(NSString*)keyPath;
--(void)setConstraintForKeyPath:(NSString*)keyPath;
 
 @end

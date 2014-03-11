@@ -8,8 +8,11 @@
 
 #import "JGViewController.h"
 #import "JGLayoutDotSyntax.h"
+#import "NSObject+DynamicConstraint.h"
 
 @interface JGViewController ()
+
+@property (nonatomic) NSInteger value;
 
 @end
 
@@ -60,7 +63,7 @@
     float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
     purpleView.width = @(2*size);
-    purpleView.height = @(2*size);
+    purpleView.height = [self constraintForKeyPath:@"value"];
     purpleView.right = self.view.right;
     purpleView.top = [self.view.top add:statusBarHeight];
     
@@ -87,7 +90,7 @@
     
     label.alignment = greenView.alignment;
     label.fontSize = [greenView.height multiply:.5];
-    
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,6 +8,13 @@
 #import "UIView+Layout.h"
 #import "JGLayoutParameter.h"
 #import "JGDynamicSizeLabel.h"
+#import "JGDynamicConstraintObserver.h"
+
+@interface UIView ()
+
+@property (nonatomic) JGDynamicConstraintObserver *dynamicConstraintObserver;
+
+@end
 
 @implementation UIView (Layout)
 
@@ -139,6 +146,9 @@
     else if([theParameter isKindOfClass:[NSNumber class]]){
         // Creates a JGLayoutParameter out of NSNumber input
         parameter = [JGLayoutParameter constant:[(NSNumber*)theParameter floatValue]];
+    }
+    else if([theParameter isKindOfClass:[NSArray class]]){
+        
     }
     else{
         [NSException raise:@"Bad parameter input." format:@"Parameter input must be either a NSNumber or a JGLayoutParameter."];
