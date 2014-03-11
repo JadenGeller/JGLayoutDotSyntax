@@ -162,43 +162,46 @@
  */
 @property (nonatomic) id baseline;
 
-/** Convenience method for setting the top, bottom, left, and right alginment of the reciever to be that of the view argument.
+/** Convenience property for setting the top, bottom, left, and right alginment of the reciever to be that of the view argument. As a setter, only another alignment property or a specifically formatted NSArray can be assigned. The NSArray must contain 4 object--a top, bottom, left, and right layout parameter. Note that complex layouts, such as setting the left of a view to the right of another view, cannot be obtained using this convenience property.
  
  @code
  
- [viewA matchAligment:viewB]; // sets viewA's top, bottom, left, and right to that of viewB
+ viewA.alignment = viewB.alignment; // sets viewA's top, bottom, left, and right to that of viewB
+ viewC.alignment = @[viewD.top, viewD.bottom, viewE.left, viewF.right];
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
  */
--(void)matchAligment:(UIView*)view;
+@property (nonatomic) NSArray *alignment;
 
-/** Convenience method for setting the width and height alginment of the reciever to be that of the view argument.
+/** Convenience property for setting the width and height alginment of the reciever to be that of the view argument. As a setter, another size property or an NSArray containing a width and a height layout parameter can be assigned.
  
  @code
  
- [viewA matchSize:viewB]; // sets viewA's width and height to that of viewB
+ viewA.size = viewB.size; // sets viewA's width and height to that of viewB
+ viewC.size = @[viewD.width, viewE.height];
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
  */
--(void)matchSize:(UIView*)view;
+@property (nonatomic) NSArray *size;
 
-/** Convenience method for setting the centerX and centerY alginment of the reciever to be that of the view argument.
+/** Convenience property for setting the centerX and centerY of the reciever to be that of the view argument. As a setter, another center property or an NSArray containing a centerX and a centerY layout parameter can be assigned.
  
  @code
  
- [viewA matchCenter:viewB]; // sets viewA's centerX and centerY to that of viewB
+ viewA.center = viewB.center; // sets viewA's centerX and centerY to that of viewB
+ viewC.center = @[viewD.centerX, viewE.centerY];
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
  */
--(void)matchCenter:(UIView*)view;
+@property (nonatomic) NSArray *position;
 
 @end

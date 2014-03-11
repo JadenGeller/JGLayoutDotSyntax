@@ -7,6 +7,7 @@
 
 #import "UIView+Layout.h"
 #import "JGLayoutParameter.h"
+#import "JGDynamicSizeLabel.h"
 
 @implementation UIView (Layout)
 
@@ -204,21 +205,92 @@
     return count;
 }
 
--(void)matchAligment:(UIView*)view{
-    self.left = view.left;
-    self.right = view.right;
-    self.top = view.top;
-    self.bottom = view.bottom;
+-(void)setAlignment:(NSArray *)alignment{
+    if (alignment.count == 4) {
+        for (JGLayoutParameter *parameter in alignment) {
+            switch (parameter.attribute) {
+                case NSLayoutAttributeTop:
+                    self.top = parameter;
+                    break;
+                    
+                case NSLayoutAttributeBottom:
+                    self.bottom = parameter;
+                    break;
+                    
+                case NSLayoutAttributeLeft:
+                    self.left = parameter;
+                    break;
+                    
+                case NSLayoutAttributeRight:
+                    self.right = parameter;
+                    break;
+                    
+                case NSLayoutAttributeLeading:
+                    self.leading = parameter;
+                    break;
+                    
+                case NSLayoutAttributeTrailing:
+                    self.trailing = parameter;
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+    }
+    else [NSException raise:@"Invalid alignment" format:@"Alignment array does not contain 4 objects"];
 }
 
--(void)matchSize:(UIView *)view{
-    self.width = view.width;
-    self.right = view.right;
+-(void)setSize:(NSArray *)size{
+    if (size.count == 2) {
+        for (JGLayoutParameter *parameter in size) {
+            switch (parameter.attribute) {
+                case NSLayoutAttributeWidth:
+                    self.width = parameter;
+                    break;
+                    
+                case NSLayoutAttributeHeight:
+                    self.height = parameter;
+                    break;
+                
+                default:
+                    break;
+            }
+        }
+    }
+    else [NSException raise:@"Invalid size" format:@"Size array does not contain 2 objects"];
 }
 
--(void)matchCenter:(UIView*)view{
-    self.centerX = view.centerX;
-    self.centerY = view.centerY;
+-(void)setPosition:(NSArray *)position{
+    if (position.count == 2) {
+        for (JGLayoutParameter *parameter in position) {
+            switch (parameter.attribute) {
+                case NSLayoutAttributeCenterX:
+                    self.centerX = parameter;
+                    break;
+                    
+                case NSLayoutAttributeCenterY:
+                    self.centerY = parameter;
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+    }
+    else [NSException raise:@"Invalid alignment" format:@"Center array does not contain 2 objects"];
+}
+
+-(NSArray *)alignment{
+    return @[self.top, self.bottom, self.left, self.right];
+}
+
+-(NSArray *)size{
+    return @[self.width, self.height];
+}
+
+-(NSArray *)position{
+    return @[self.centerX, self.centerY];
 }
 
 @end

@@ -85,7 +85,7 @@
     greenView.left = self.view.left;
     greenView.right = self.view.right;
     
-    [label matchAligment:greenView];
+    label.alignment = greenView.alignment;
     label.fontSize = [greenView.height multiply:.5];
     
 }
