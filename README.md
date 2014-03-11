@@ -8,13 +8,13 @@ Format
 
 Layout constraints can be specified simply and easily using reading dot syntax. The lenghty, hard-to-understand layout code
 
-```
+```objc
 [self.view addConstraint:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 ```
 
 can be rewritten in a short, simple, easily understood format using JGLayoutDotSyntax:
 
-```
+```objc
 subview.centerX = self.view.centerX;
 ```
 
@@ -23,7 +23,7 @@ Conventional methods of creating autolayout constraints simply obfuscuate the in
 
 JGLayoutDotSyntax supports all features that NSLayoutConstraint does, including constants, multipliers, and priority. Because of the limitations of Objective-C, constants can not simply be added with the plus symbol. Instead, JGLayoutParameter implements an add method that can be used as follows:
 
-```
+```objc
 subview.left = [self.view.left add:10];
 ```
 
@@ -31,7 +31,7 @@ The add method takes a CGFloat as an input argument and sets it as the NSLayoutC
 
 Additionally, JGLayoutDotSyntax allows priority to be specified. In favor of concision, a slightly irregular syntax is used. After a JGLayoutParameter, square backets can be used to specifiy priority of a constraint, if needed. For example, we can lower the priority of centering our subview:
 
-```
+```objc
 subview.centerX = self.view.centerX[UILayoutPriorityDefaultLow];
 ```
 
@@ -41,7 +41,7 @@ Further, there exists convenience methods `matchAligment:` and `matchSize:` and 
 
 One of the coolest parts of JGLayoutDotSyntax is the `JGDynamicSizeLabel` subclass of UILabel. With it, font sizes can be linked to layout constraints effortlessly. Check it out!
 
-```
+```objc
 label.fontSize = [view.height multiply:.5];
 ```
 
@@ -57,7 +57,7 @@ Example
 
 In order to better illustrate how JGLayoutDotSyntax is to be used, an example project is included that makes use of this syntax. Below is the relavent section of the example project:
 
-```
+```objc
 float size = 40;
 float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
 
