@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JGLayoutDotSyntax"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "Allows developers to set up autolayout constraints using familiar dot syntax—even with font sizes!"
 
   s.description  = <<-DESC
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   # s.author             = { "Jaden Geller" => "email@address.com" }
   # s.authors          = { "Jaden Geller" => "email@address.com", "other author" => "email@address.com" }
   s.author           = 'Jaden Geller'
-  # s.social_media_url = "http://twitter.com/Jaden Geller"
+  s.social_media_url = "http://twitter.com/JadenGeller"
 
   s.platform     = :ios, '6.0'
 
