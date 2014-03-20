@@ -135,7 +135,7 @@
 // parameter argument may be either a JGLayoutParameter or a NSNumber
 -(void)addLayoutConstraintWithAttribute:(NSLayoutAttribute)attribute parameter:(id)theParameter{
     
-    [self removeLayoutConstraintsForAttribute:attribute];
+    //[self removeLayoutConstraintsForAttribute:attribute];
     
     // if they were just setting it to nil, we are done here
     if (!theParameter) {
@@ -161,12 +161,8 @@
     
     // Creates constraint
     NSLayoutConstraint *constraint;
-    if (parameter.object) {
-        constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:parameter.relation toItem:parameter.object attribute:parameter.attribute multiplier:parameter.currentMultiplier constant:parameter.currentConstant];
-    }
-    else{
-        constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:NSLayoutRelationEqual toItem:self attribute:attribute multiplier:0 constant:parameter.currentConstant];
-    }
+    if (parameter.object) constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:parameter.relation toItem:parameter.object attribute:parameter.attribute multiplier:parameter.currentMultiplier constant:parameter.currentConstant];
+    else constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:NSLayoutRelationEqual toItem:self attribute:attribute multiplier:0 constant:parameter.currentConstant];
     
     // Sets priority, if specified
     if (parameter.priority) constraint.priority = parameter.priority;
@@ -179,6 +175,7 @@
         [self.dynamicConstraintObserver startUpdatingConstraint:constraint withDynamicConstraint:parameter.constant forMultiplier:NO];
     }
     if ([parameter.multiplier isKindOfClass:[JGDynamicConstraint class]]) {
+        [NSException raise:@"Not yet supported" format:@"Support for dynamic multipliers has not yet been implemented."];
         [self.dynamicConstraintObserver startUpdatingConstraint:constraint withDynamicConstraint:parameter.multiplier forMultiplier:YES];
     }
 
@@ -339,7 +336,10 @@
 }
 
 -(void)updatedValue:(NSNumber*)value forConstraint:(NSLayoutConstraint *)constraint forMultiplier:(BOOL)useMultiplier{
-    NSLog(@"BLAH");
+    if (useMultiplier){
+        
+    }
+    else constraint.constant = value.doubleValue;
 }
 
 @end

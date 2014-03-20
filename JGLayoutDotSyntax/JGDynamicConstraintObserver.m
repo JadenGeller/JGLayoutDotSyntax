@@ -58,9 +58,8 @@
 }
 
 -(void)startUpdatingConstraint:(NSLayoutConstraint *)layoutConstraint withDynamicConstraint:(JGDynamicConstraint*)dynamicConstraint forMultiplier:(BOOL)useMultiplier{
-    
-    [[self watchedForMultiplier:useMultiplier] setObject:layoutConstraint forKey:dynamicConstraint];
     [self startWatchingDynamicConstraint:dynamicConstraint];
+    [[self watchedForMultiplier:useMultiplier] setObject:layoutConstraint forKey:dynamicConstraint];
 }
 
 -(void)stopUpdatingConstraintWithAttribute:(NSLayoutAttribute)layoutAttribute dictionary:(NSMutableDictionary*)dictionary{

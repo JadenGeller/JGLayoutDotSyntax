@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad
 {
-    _value = 10;
+    _value = 20;
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -49,7 +49,7 @@
     
     JGDynamicSizeLabel *label = [[JGDynamicSizeLabel alloc]init];
     label.translatesAutoresizingMaskIntoConstraints = NO;
-    label.text = @"Hello World";
+    label.text = @"Touch Me!";
     label.textAlignment = NSTextAlignmentCenter;
 
     [self.view addSubview:purpleView];
@@ -64,8 +64,8 @@
     float size = 40;
     float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
-    purpleView.width = @(2*size);
     purpleView.height = [self constraintForKeyPath:@"value"];
+    purpleView.width = [purpleView.height add:@(10)];
     purpleView.right = self.view.right;
     purpleView.top = [self.view.top add:@(statusBarHeight)];
     
