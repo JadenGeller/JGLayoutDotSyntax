@@ -43,10 +43,23 @@ The argument between the brackets should be a UILayoutPriority, which is represe
 
 Further, there exists convenience methods `matchAligment:` and `matchSize:` and `matchCenter:` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
 
+JGDynamicSizeLabel
+=================
+
 One of the coolest parts of JGLayoutDotSyntax is the `JGDynamicSizeLabel` subclass of UILabel. With it, font sizes can be linked to layout constraints effortlessly. Check it out!
 
 ```objc
+JGDynamicSizeLabel *label = [[JGDynamicSizeLabel alloc]init];
 label.fontSize = [view.height multiply:.5];
+```
+
+Dynamic Constraints
+=================
+
+Now, with dynamic constraints, you can create constraints out of arbitrary KVO-compliant properties! For example, if you wanted to set the width of a download progress bar to the equal to the current download progress, you can! Best of all, whenever the progress changes, the view will properly resize, just as you'd expect!
+
+```objc
+progressView.width = [downloader constraintForKeyPath: @"progress"];
 ```
 
 In the above example, we set the label to have a font with half the value of view's height.
