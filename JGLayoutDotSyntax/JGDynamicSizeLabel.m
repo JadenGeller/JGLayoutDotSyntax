@@ -74,7 +74,7 @@
             [NSException raise:@"Bad font size constraint." format:@"Font size constraint must be either a NSNumber or a JGLayoutParameter."];
         }
         
-        [super setFont:[self.font fontWithSize:size * self.parameter.multiplier + self.parameter.constant]];
+        [super setFont:[self.font fontWithSize:size * self.parameter.currentMultiplier + self.parameter.currentConstant]];
     }
 }
 

@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad
 {
+    _value = 10;
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
@@ -65,7 +67,7 @@
     purpleView.width = @(2*size);
     purpleView.height = [self constraintForKeyPath:@"value"];
     purpleView.right = self.view.right;
-    purpleView.top = [self.view.top add:statusBarHeight];
+    purpleView.top = [self.view.top add:@(statusBarHeight)];
     
     blueView.left = self.view.left;
     blueView.centerY = self.view.centerY;
@@ -76,21 +78,27 @@
     redView.height = @(size);
     redView.centerX = self.view.centerX[UILayoutPriorityDefaultHigh];
     redView.centerY = self.view.centerY;
-    redView.left = [[blueView.right add:10] withRelation:NSLayoutRelationGreaterThanOrEqual];
+    redView.left = [[blueView.right add:@(10)] withRelation:NSLayoutRelationGreaterThanOrEqual];
     
-    yellowView.left = [blueView.left add:10];
-    yellowView.right = [blueView.right add:-10];
-    yellowView.top = [blueView.top add:10];
-    yellowView.bottom = [blueView.bottom add:-10];
+    CGFloat margin = 10;
+    
+    yellowView.left = [blueView.left add:@(margin)];
+    yellowView.right = [blueView.right add:@(-margin)];
+    yellowView.top = [blueView.top add:@(margin)];
+    yellowView.bottom = [blueView.bottom add:@(-margin)];
     
     greenView.bottom = self.view.bottom;
-    greenView.height = [self.view.height multiply:.2];
+    greenView.height = [self.view.height multiply:@.2];
     greenView.left = self.view.left;
     greenView.right = self.view.right;
     
     label.alignment = greenView.alignment;
-    label.fontSize = [greenView.height multiply:.5];
+    label.fontSize = [greenView.height multiply:@.5];
 
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    self.value += 10;
 }
 
 - (void)didReceiveMemoryWarning

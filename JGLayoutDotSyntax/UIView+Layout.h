@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JGDynamicConstraintObserver.h"
 
 @class JGLayoutParameter;
 
-@interface UIView (Layout)
+@interface UIView (Layout) <JGDynamicConstraintObserverDelegate>
 
 /** The left side of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the left side of the object.
  

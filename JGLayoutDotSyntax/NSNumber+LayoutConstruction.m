@@ -20,11 +20,11 @@
     return self.layoutParameter[idx];
 }
 
--(JGLayoutParameter*)add:(CGFloat)constant{
+-(JGLayoutParameter*)add:(id)constant{
     return [self.layoutParameter add:constant];
 }
 
--(JGLayoutParameter*)multiply:(CGFloat)multiplier{
+-(JGLayoutParameter*)multiply:(id)multiplier{
     return [self.layoutParameter multiply:multiplier];
 }
 

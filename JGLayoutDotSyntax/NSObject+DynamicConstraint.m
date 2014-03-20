@@ -7,11 +7,13 @@
 //
 
 #import "NSObject+DynamicConstraint.h"
+#import "JGDynamicConstraint.h"
+#import "JGLayoutParameter.h"
 
 @implementation NSObject (DynamicConstraint)
 
--(id)constraintForKeyPath:(NSString*)keyPath{
-    return @[self, keyPath];
+-(JGLayoutParameter*)constraintForKeyPath:(NSString*)keyPath{
+    return [[JGLayoutParameter layoutParameterWithObject:nil attribute:0]add:[JGDynamicConstraint constraintWithObject:self keyPath:keyPath]];
 }
 
 @end

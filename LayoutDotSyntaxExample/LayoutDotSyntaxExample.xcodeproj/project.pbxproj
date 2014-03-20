@@ -25,6 +25,7 @@
 		D740A24C18CE0636001D6B15 /* NSObject+DynamicConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D740A24B18CE0636001D6B15 /* NSObject+DynamicConstraint.m */; };
 		D740A24F18CE0BAD001D6B15 /* JGDynamicConstraintObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = D740A24E18CE0BAD001D6B15 /* JGDynamicConstraintObserver.m */; };
 		D78B304B18CFDF6F005F9F87 /* JGDynamicSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D78B304A18CFDF6F005F9F87 /* JGDynamicSizeLabel.m */; };
+		D78B304E18CFFFDB005F9F87 /* JGDynamicConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D78B304D18CFFFDB005F9F87 /* JGDynamicConstraint.m */; };
 		D7A3E1FA18BA109C00A92210 /* JGLayoutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F518BA109C00A92210 /* JGLayoutParameter.m */; };
 		D7A3E1FB18BA109C00A92210 /* NSNumber+LayoutConstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F718BA109C00A92210 /* NSNumber+LayoutConstruction.m */; };
 		D7A3E1FC18BA109C00A92210 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A3E1F918BA109C00A92210 /* UIView+Layout.m */; };
@@ -67,6 +68,8 @@
 		D740A24E18CE0BAD001D6B15 /* JGDynamicConstraintObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGDynamicConstraintObserver.m; sourceTree = "<group>"; };
 		D78B304918CFDF6F005F9F87 /* JGDynamicSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGDynamicSizeLabel.h; sourceTree = "<group>"; };
 		D78B304A18CFDF6F005F9F87 /* JGDynamicSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGDynamicSizeLabel.m; sourceTree = "<group>"; };
+		D78B304C18CFFFDB005F9F87 /* JGDynamicConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGDynamicConstraint.h; sourceTree = "<group>"; };
+		D78B304D18CFFFDB005F9F87 /* JGDynamicConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGDynamicConstraint.m; sourceTree = "<group>"; };
 		D7A3E1F218BA109C00A92210 /* JGLayoutConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGLayoutConstruction.h; sourceTree = "<group>"; };
 		D7A3E1F318BA109C00A92210 /* JGLayoutDotSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGLayoutDotSyntax.h; sourceTree = "<group>"; };
 		D7A3E1F418BA109C00A92210 /* JGLayoutParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGLayoutParameter.h; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				D78B304A18CFDF6F005F9F87 /* JGDynamicSizeLabel.m */,
 				D740A24A18CE0636001D6B15 /* NSObject+DynamicConstraint.h */,
 				D740A24B18CE0636001D6B15 /* NSObject+DynamicConstraint.m */,
+				D78B304C18CFFFDB005F9F87 /* JGDynamicConstraint.h */,
+				D78B304D18CFFFDB005F9F87 /* JGDynamicConstraint.m */,
 				D740A24D18CE0BAD001D6B15 /* JGDynamicConstraintObserver.h */,
 				D740A24E18CE0BAD001D6B15 /* JGDynamicConstraintObserver.m */,
 			);
@@ -306,6 +311,7 @@
 				D7A3E1FA18BA109C00A92210 /* JGLayoutParameter.m in Sources */,
 				D70B3367184AB62600807CBC /* JGAppDelegate.m in Sources */,
 				D7A3E1FB18BA109C00A92210 /* NSNumber+LayoutConstruction.m in Sources */,
+				D78B304E18CFFFDB005F9F87 /* JGDynamicConstraint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

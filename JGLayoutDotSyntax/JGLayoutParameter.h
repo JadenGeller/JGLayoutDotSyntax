@@ -14,9 +14,12 @@
 @property (nonatomic, readonly) NSLayoutRelation relation;
 @property (nonatomic, readonly) id object;
 @property (nonatomic, readonly) NSInteger priority;
-@property (nonatomic, readonly) CGFloat constant;
-@property (nonatomic, readonly) CGFloat multiplier;
-//@property (nonatomic, readonly)
+@property (nonatomic, readonly) id constant;
+@property (nonatomic, readonly) id multiplier;
+
+// The double value of our constant at the current moment
+@property (nonatomic, readonly) CGFloat currentConstant;
+@property (nonatomic, readonly) CGFloat currentMultiplier;
 
 /** Initializes a JGLayoutParameter and sets the constant. It is not necessary to use this, however, as the JGLayoutConstruction category for the NSNumber class allows NSNumbers to be used as constant JGLayoutParameters.
  

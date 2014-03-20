@@ -8,7 +8,8 @@
 #import "UIView+Layout.h"
 #import "JGLayoutParameter.h"
 #import "JGDynamicSizeLabel.h"
-#import "JGDynamicConstraintObserver.h"
+#import "JGDynamicConstraint.h"
+#import <objc/runtime.h>
 
 @interface UIView ()
 
@@ -115,6 +116,9 @@
 #pragma mark - Adding Constraint
 
 -(void)removeLayoutConstraintsForAttribute:(NSLayoutAttribute)attribute{
+    
+    if([self hasConstraintObserver]) [self.dynamicConstraintObserver stopUpdatingConstraintWithAttribute:attribute];
+
     UIView *view = self;
     
     // Remove all constraints relating to self and attribute from all superviews of self
@@ -133,6 +137,7 @@
     
     [self removeLayoutConstraintsForAttribute:attribute];
     
+    // if they were just setting it to nil, we are done here
     if (!theParameter) {
         return;
     }
@@ -147,24 +152,36 @@
         // Creates a JGLayoutParameter out of NSNumber input
         parameter = [JGLayoutParameter constant:[(NSNumber*)theParameter floatValue]];
     }
-    else if([theParameter isKindOfClass:[NSArray class]]){
-        
-    }
     else{
-        [NSException raise:@"Bad parameter input." format:@"Parameter input must be either a NSNumber or a JGLayoutParameter."];
+        [NSException raise:@"Bad parameter input" format:@"Parameter input must be either a NSNumber or a JGLayoutParameter or a dynamic constraint."];
     }
     
     // Gets pointer to the view to which the NSLayoutConstraint should be added
     UIView *receiver = parameter.object?[UIView nearestCommonView:@[self,parameter.object]]:self;
     
     // Creates constraint
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:parameter.relation toItem:parameter.object attribute:parameter.attribute multiplier:parameter.multiplier constant:parameter.constant];
+    NSLayoutConstraint *constraint;
+    if (parameter.object) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:parameter.relation toItem:parameter.object attribute:parameter.attribute multiplier:parameter.currentMultiplier constant:parameter.currentConstant];
+    }
+    else{
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:NSLayoutRelationEqual toItem:self attribute:attribute multiplier:0 constant:parameter.currentConstant];
+    }
     
     // Sets priority, if specified
     if (parameter.priority) constraint.priority = parameter.priority;
     
     // Adds constraint
     [receiver addConstraint:constraint];
+    
+    // Add dynamic constraints
+    if ([parameter.constant isKindOfClass:[JGDynamicConstraint class]]) {
+        [self.dynamicConstraintObserver startUpdatingConstraint:constraint withDynamicConstraint:parameter.constant forMultiplier:NO];
+    }
+    if ([parameter.multiplier isKindOfClass:[JGDynamicConstraint class]]) {
+        [self.dynamicConstraintObserver startUpdatingConstraint:constraint withDynamicConstraint:parameter.multiplier forMultiplier:YES];
+    }
+
 }
 
 +(UIView*)nearestCommonView:(NSArray*)views{
@@ -301,6 +318,28 @@
 
 -(NSArray *)position{
     return @[self.centerX, self.centerY];
+}
+
+-(JGDynamicConstraintObserver*)dynamicConstraintObserver{
+    JGDynamicConstraintObserver *observer = objc_getAssociatedObject(self, @selector(dynamicConstraintObserver));
+    if (!observer) {
+        observer = [[JGDynamicConstraintObserver alloc]init];
+        observer.delegate = self;
+        self.dynamicConstraintObserver = observer;
+    }
+    return observer;
+}
+
+-(void)setDynamicConstraintObserver:(JGDynamicConstraintObserver *)dynamicConstraintObserver{
+    objc_setAssociatedObject(self, @selector(dynamicConstraintObserver), dynamicConstraintObserver, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(BOOL)hasConstraintObserver{
+    return objc_getAssociatedObject(self, @selector(dynamicConstraintObserver));
+}
+
+-(void)updatedValue:(NSNumber*)value forConstraint:(NSLayoutConstraint *)constraint forMultiplier:(BOOL)useMultiplier{
+    NSLog(@"BLAH");
 }
 
 @end

@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class JGLayoutParameter;
+
 @interface NSObject (DynamicConstraint)
 
--(id)constraintForKeyPath:(NSString*)keyPath;
+-(JGLayoutParameter*)constraintForKeyPath:(NSString*)keyPath;
 
 @end

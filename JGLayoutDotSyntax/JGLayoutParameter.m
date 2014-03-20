@@ -6,6 +6,7 @@
 //
 
 #import "JGLayoutParameter.h"
+#import "JGDynamicConstraint.h"
 
 @interface JGLayoutParameter ()
 
@@ -13,8 +14,8 @@
 @property (nonatomic) NSLayoutRelation relation;
 @property (nonatomic) id object;
 @property (nonatomic) NSInteger priority;
-@property (nonatomic) CGFloat constant;
-@property (nonatomic) CGFloat multiplier;
+@property (nonatomic) id constant;
+@property (nonatomic) id multiplier;
 
 @end
 
@@ -29,7 +30,7 @@
 
 +(JGLayoutParameter*)constant:(CGFloat)constant{
     JGLayoutParameter *parameter = [[JGLayoutParameter alloc]init];
-    parameter.constant = constant;
+    parameter.constant = @(constant);
     return parameter;
 }
 
@@ -39,7 +40,8 @@
         _attribute = NSLayoutAttributeNotAnAttribute;
         _relation = NSLayoutRelationEqual;
         _priority = UILayoutPriorityRequired;
-        _multiplier = 1;
+        _multiplier = @(1);
+        _constant = @(0);
     }
     return self;
 }
@@ -51,13 +53,13 @@
     return self;
 }
 
--(JGLayoutParameter*)add:(CGFloat)constant{
+-(JGLayoutParameter*)add:(id)constant{
     self.constant = constant;
     return self;
 }
 
--(JGLayoutParameter*)multiply:(CGFloat)multiplier{
-    self.multiplier = multiplier;
+-(JGLayoutParameter*)multiply:(id)constant{
+    self.multiplier = constant;
     return self;
 }
 
@@ -67,7 +69,28 @@
 }
 
 -(NSString*)description{
-    return [NSString stringWithFormat:@"<%@: %p; object = %@; constant = %f; multiplier = %f>",NSStringFromClass([self class]), self, self.object, self.constant, self.multiplier];
+    return [NSString stringWithFormat:@"<%@: %p; object = %@; constant = %@; multiplier = %@>",NSStringFromClass([self class]), self, self.object, self.constant, self.multiplier];
+}
+
+-(CGFloat)currentConstant{
+    return [self valueForObject:self.constant];
+}
+
+-(CGFloat)currentMultiplier{
+    return [self valueForObject:self.multiplier];
+}
+
+-(CGFloat)valueForObject:(id)object{
+    if ([object isKindOfClass:[JGDynamicConstraint class]]) {
+        JGDynamicConstraint *constraint = (JGDynamicConstraint*)object;
+        return [[constraint.object valueForKey:constraint.keyPath]doubleValue];
+    }
+    else if ([object isKindOfClass:[NSNumber class]]) {
+        return [object doubleValue];
+    }
+    
+    [NSException raise:@"Bad type" format:@"Invalid layout parameter"];
+    return 0;
 }
 
 @end

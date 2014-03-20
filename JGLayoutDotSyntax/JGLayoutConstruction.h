@@ -20,7 +20,7 @@
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
  */
--(JGLayoutParameter*)add:(CGFloat)constant;
+-(JGLayoutParameter*)add:(id)constant;
 
 /** Sets the multiplier for the given JGLayoutParameter and returns the same instance of JGLayoutParameter. The only reason that there is a return value is for conveneince, allowing layout constraints to be specified on a single line.
  
@@ -31,7 +31,7 @@
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
  */
--(JGLayoutParameter*)multiply:(CGFloat)multiplier;
+-(JGLayoutParameter*)multiply:(id)constant;
 
 /** Sets the relationship for the given JGLayoutParameter and returns the same instance of JGLayoutParameter. The only reason that there is a return value is for conveneince, allowing layout constraints to be specified on a single line.
  
