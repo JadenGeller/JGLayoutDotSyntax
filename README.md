@@ -1,7 +1,11 @@
 Introduction
 =================
 
-JGLayoutDotSyntax provides classes and categories to make it easier to add NSLayoutConstraints. Rather than entering lengthy code that specifies the views, attributes, relationship, constant, and mulplier all in a single function (not to mention the reciever view that must add the constraint), JGLayoutDotSyntax allows relationships to be specified simply and concisely. Additionally, JGLayoutDotSyntax adds support for font size constraints by use of the JGDynamicSizeLabel subclass of UILabel. With this class, one can simply and set up the font size to adjust with the rest of the layout.
+JGLayoutDotSyntax provides classes and categories to make it easier to add NSLayoutConstraints. Rather than entering lengthy code that specifies the views, attributes, relationship, constant, and mulplier all in a single function (not to mention the reciever view that must add the constraint), JGLayoutDotSyntax allows relationships to be specified simply and concisely.
+
+Additionally, JGLayoutDotSyntax adds support for font size constraints by use of the JGDynamicSizeLabel subclass of UILabel. With this class, one can simply and set up the font size to adjust with the rest of the layout.
+
+Finally, JGLayoutDotSyntax supports using arbitrary properties as constraints. For example, if you have a downloader object that has a property indicating the download progress, you can see the width of a view (as an example) to the progress value, and it will update with the property! JGLayoutDotSytax add not just convenience, but also very powerful new` features to autolayout.
 
 Format
 =================
@@ -61,10 +65,10 @@ In order to better illustrate how JGLayoutDotSyntax is to be used, an example pr
 float size = 40;
 float statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
 
-purpleView.width = @(2*size);
-purpleView.height = @(2*size);
+purpleView.height = [self constraintForKeyPath:@"value"];
+purpleView.width = [purpleView.height add:@(10)];
 purpleView.right = self.view.right;
-purpleView.top = [self.view.top add:statusBarHeight];
+purpleView.top = [self.view.top add:@(statusBarHeight)];
 
 blueView.left = self.view.left;
 blueView.centerY = self.view.centerY;
@@ -75,20 +79,22 @@ redView.width = @(size);
 redView.height = @(size);
 redView.centerX = self.view.centerX[UILayoutPriorityDefaultHigh];
 redView.centerY = self.view.centerY;
-redView.left = [[blueView.right add:10] withRelation:NSLayoutRelationGreaterThanOrEqual];
+redView.left = [[blueView.right add:@(10)] withRelation:NSLayoutRelationGreaterThanOrEqual];
 
-yellowView.left = [blueView.left add:10];
-yellowView.right = [blueView.right add:-10];
-yellowView.top = [blueView.top add:10];
-yellowView.bottom = [blueView.bottom add:-10];
+CGFloat margin = 10;
+
+yellowView.left = [blueView.left add:@(margin)];
+yellowView.right = [blueView.right add:@(-margin)];
+yellowView.top = [blueView.top add:@(margin)];
+yellowView.bottom = [blueView.bottom add:@(-margin)];
 
 greenView.bottom = self.view.bottom;
-greenView.height = [self.view.height multiply:.2];
+greenView.height = [self.view.height multiply:@.2];
 greenView.left = self.view.left;
 greenView.right = self.view.right;
 
 label.alignment = greenView.alignment;
-label.fontSize = [greenView.height multiply:.5];
+label.fontSize = [greenView.height multiply:@.5];
 ```
 
 Displayed a portrait-oriented and a landscape oriented iPhone, the above layout would look like the images below:
