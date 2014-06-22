@@ -1,0 +1,439 @@
+//
+//  UIViewExtension.swift
+//  JGLayoutDotSyntax
+//
+//  Objective-C code Copyright (c) 2014 Jaden Geller. All rights reserved.
+//  Swift adaptation Copyright (c) 2014 Nicolas Gomollon. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+extension UIView {
+	
+	/** The top of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the top of the object.
+ 
+ @code
+ 
+ viewA.top = viewB.bottom; // aligns top edge of viewA to bottom edge of viewB
+ viewC.top = viewD.top;    // aligns top edge of viewC to top edge of viewD
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutTop: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Top)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Top, parameter: newValue)
+	}
+	}
+	
+	/** The bottom of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the bottom of the object.
+ 
+ @code
+ 
+ viewA.bottom = viewB.bottom; // aligns bottom edge of viewA to bottom edge of viewB
+ viewC.bottom = viewD.top;    // aligns bottom edge of viewC to top edge of viewD
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutBottom: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Bottom)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Bottom, parameter: newValue)
+	}
+	}
+	
+	/** The left side of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the left side of the object.
+ 
+ @code
+ 
+ viewA.left = viewB.right; // aligns left edge of viewA to right edge of viewB
+ viewC.left = viewD.left;  // aligns left edge of viewC to left edge of viewD
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+	
+	*/
+	var layoutLeft: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Left)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Left, parameter: newValue)
+	}
+	}
+	
+	/** The right side of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the right side of the object.
+ 
+ @code
+ 
+ viewA.right = viewB.right; // aligns right edge of viewA to right edge of viewB
+ viewC.right = viewD.left;  // aligns right edge of viewC to left edge of viewD
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutRight: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Right)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Right, parameter: newValue)
+	}
+	}
+	
+	/** The leading edge of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the leading edge of the object.
+ 
+ @code
+ 
+ viewA.leading = viewB.trailing; // aligns leading edge of viewA to the trailing edge of viewB
+ viewC.leading = viewD.leading;  // aligns leading edge of viewC to the leading edge of viewD
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutLeading: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Leading)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Leading, parameter: newValue)
+	}
+	}
+	
+	/** The trailing edge of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the trailing edge of the object.
+ 
+ @code
+ 
+ viewA.trailing = viewB.trailing; // aligns trailing edge of viewA to the trailing edge of viewB
+ viewC.trailing = viewD.leading;  // aligns trailing edge of viewC to the leading edge of viewD
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutTrailing: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Trailing)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Trailing, parameter: newValue)
+	}
+	}
+	
+	/** The width of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter or constant NSNumber. Used as a getter, this returns a JGLayoutParameter representing the width of the object.
+ 
+ @code
+ 
+ viewA.width = viewB.width; // sets viewA width to match that of viewB
+ viewC.width = @50;         // sets viewC width to 50 points
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutWidth: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Width)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Width, parameter: newValue)
+	}
+	}
+	
+	/** The height of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter or constant NSNumber. Used as a getter, this returns a JGLayoutParameter representing the height of the object.
+ 
+ @code
+ 
+ viewA.height = viewB.height; // sets viewA height to match that of viewB
+ viewC.height = @50;          // sets viewC height to 50 points
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutHeight: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Height)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Height, parameter: newValue)
+	}
+	}
+	
+	/** The center along the x-axis of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the center along the x-axis of the object.
+ 
+ @code
+ 
+ viewA.centerX = viewB.centerX; // sets viewA center along the x-axis to match that of viewB
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutCenterX: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .CenterX)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.CenterX, parameter: newValue)
+	}
+	}
+	
+	/** The center along the y-axis of the object’s alignment rectangle. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the center along the y-axis of the object.
+ 
+ @code
+ 
+ viewA.centerY = viewB.centerY; // sets viewA center along the y-axis to match that of viewB
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutCenterY: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .CenterY)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.CenterY, parameter: newValue)
+	}
+	}
+	
+	/** The baseline of the object. Used as a setter, this creates and adds a NSLayoutContraint based upon the specification of the assigned JGLayoutParameter. Used as a getter, this returns a JGLayoutParameter representing the baseline of the object.
+ 
+ @code
+ 
+ viewA.baseline = viewB.baseline; // sets viewA's baseline to match that of viewB
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutBaseline: JGLayoutParameter {
+	get {
+		return JGLayoutParameter(object: self, attribute: .Baseline)
+	}
+	set {
+		addLayoutConstraintWithAttribute(.Baseline, parameter: newValue)
+	}
+	}
+	
+	/** Convenience property for setting the top, bottom, left, and right alginment of the reciever to be that of the view argument. As a setter, only another alignment property or a specifically formatted NSArray can be assigned. The NSArray must contain 4 object--a top, bottom, left, and right layout parameter. Note that complex layouts, such as setting the left of a view to the right of another view, cannot be obtained using this convenience property.
+ 
+ @code
+ 
+ viewA.alignment = viewB.alignment; // sets viewA's top, bottom, left, and right to that of viewB
+ viewC.alignment = @[viewD.top, viewD.bottom, viewE.left, viewF.right];
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutAlignment: Array<JGLayoutParameter> {
+	get {
+		return [layoutTop, layoutBottom, layoutLeft, layoutRight]
+	}
+	set {
+		assert(newValue.count == 4, "Invalid alignment: Alignment array does not contain 4 objects")
+		for parameter in newValue {
+			switch parameter.attribute {
+			case .Top:
+				layoutTop = parameter
+			case .Bottom:
+				layoutBottom = parameter
+			case .Left:
+				layoutLeft = parameter
+			case .Right:
+				layoutRight = parameter
+			case .Leading:
+				layoutLeading = parameter
+			case .Trailing:
+				layoutTrailing = parameter
+			default:
+				break
+			}
+		}
+	}
+	}
+	
+	/** Convenience property for setting the width and height alginment of the reciever to be that of the view argument. As a setter, another size property or an NSArray containing a width and a height layout parameter can be assigned.
+ 
+ @code
+ 
+ viewA.size = viewB.size; // sets viewA's width and height to that of viewB
+ viewC.size = @[viewD.width, viewE.height];
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutSize: Array<JGLayoutParameter> {
+	get {
+		return [layoutWidth, layoutHeight]
+	}
+	set {
+		assert(newValue.count == 2, "Invalid size: Size array does not contain 2 objects")
+		for parameter in newValue {
+			switch parameter.attribute {
+			case .Width:
+				layoutWidth = parameter
+			case .Height:
+				layoutHeight = parameter
+			default:
+				break
+			}
+		}
+	}
+	}
+	
+	/** Convenience property for setting the centerX and centerY of the reciever to be that of the view argument. As a setter, another center property or an NSArray containing a centerX and a centerY layout parameter can be assigned.
+ 
+ @code
+ 
+ viewA.center = viewB.center; // sets viewA's centerX and centerY to that of viewB
+ viewC.center = @[viewD.centerX, viewE.centerY];
+ 
+ @endcode
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	var layoutPosition: Array<JGLayoutParameter> {
+	get {
+		return [layoutCenterX, layoutCenterY]
+	}
+	set {
+		assert(newValue.count == 2, "Invalid position: Position array does not contain 2 objects")
+		for parameter in newValue {
+			switch parameter.attribute {
+			case .CenterX:
+				layoutCenterX = parameter
+			case .CenterY:
+				layoutCenterY = parameter
+			default:
+				break
+			}
+		}
+	}
+	}
+	
+	
+	func removeLayoutConstraintsForAttribute(attribute: NSLayoutAttribute) {
+		var view = self
+		
+		// Remove all constraints relating to self and attribute from all superviews of self
+		do {
+			for constraint in view.constraints() as Array<NSLayoutConstraint> {
+				if (((constraint.firstItem as NSObject) == self) && (constraint.firstAttribute == attribute)) ||
+					((constraint.secondItem as NSObject) == self) && (constraint.secondAttribute == attribute) {
+						view.removeConstraint(constraint)
+				}
+			}
+			view = view.superview
+		} while view.superview
+	}
+	
+	func addLayoutConstraintWithAttribute(attribute: NSLayoutAttribute, parameter: AnyObject?) {
+		removeLayoutConstraintsForAttribute(attribute)
+		if let parameter: AnyObject = parameter {
+			var layoutParameter: JGLayoutParameter!
+			if let layoutParam = parameter as? JGLayoutParameter {
+				layoutParameter = layoutParam
+			} else if let number = parameter as? NSNumber {
+				layoutParameter = JGLayoutParameter(constant: number.doubleValue)
+			}
+			assert(layoutParameter, "Bad parameter input: Parameter input must be either a NSNumber or a JGLayoutParameter or a dynamic constraint.")
+			
+			var receiver: UIView!
+			var layoutConstraint: NSLayoutConstraint!
+			
+			if let object = layoutParameter.object as? UIView {
+				receiver = nearestCommonView([self, object])
+				
+				layoutConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: layoutParameter.relation, toItem: object, attribute: layoutParameter.attribute, multiplier: layoutParameter.multiplier, constant: layoutParameter.constant)
+			} else {
+				receiver = self
+				
+				layoutConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self, attribute: attribute, multiplier: 0.0, constant: layoutParameter.constant)
+			}
+			
+			if layoutParameter.priority != UILayoutPriorityRequired {
+				layoutConstraint.priority = UILayoutPriority(layoutParameter.priority)
+			}
+			
+			receiver.addConstraint(layoutConstraint)
+		}
+	}
+	
+	func nearestCommonView(views: Array<UIView>) -> UIView {
+		var closestView = Int.max
+		for view in views {
+			closestView = min(closestView, view.displacementFromTopOfHierarchy)
+		}
+		
+		var slice = Array<UIView>()
+		for view in views {
+			slice += view.viewWithDisplacementFromTopOfHierarchy(closestView)
+		}
+		
+		while !UIView.allObjectsInArrayAreEqual(slice) {
+			for i in 0..slice.count {
+				slice[i] = slice[i].superview
+			}
+		}
+		return slice[0]
+	}
+	
+	class func allObjectsInArrayAreEqual(array: Array<NSObject>) -> Bool {
+		var arrayGenerator = array.generate()
+		let firstObject = arrayGenerator.next()
+		for object in arrayGenerator {
+			if object != firstObject { return false }
+		}
+		return true
+	}
+
+	func viewWithDisplacementFromTopOfHierarchy(displacement: Int) -> UIView {
+		return superviewOfOrder(displacementFromTopOfHierarchy - displacement)
+	}
+	
+	func superviewOfOrder(order: Int) -> UIView {
+		var view = self
+		for _ in 0..order {
+			view = view.superview
+		}
+		return view
+	}
+	
+	var displacementFromTopOfHierarchy: Int {
+		var count = 0
+		for var i = superview; i; i = i.superview {
+			count++
+		}
+		return count
+	}
+	
+}
