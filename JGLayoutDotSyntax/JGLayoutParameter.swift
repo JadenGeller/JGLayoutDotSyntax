@@ -216,3 +216,57 @@ extension NSNumber {
 @infix func -= (left: JGLayoutParameter, right: NSNumber) {
 	left -= right.doubleValue
 }
+
+
+@infix func * (left: JGLayoutParameter, right: Double) -> JGLayoutParameter {
+	left.multiplier = right
+	return left
+}
+
+@infix func * (left: Double, right: JGLayoutParameter) -> JGLayoutParameter {
+	return right * left
+}
+
+@infix func * (left: JGLayoutParameter, right: Float) -> JGLayoutParameter {
+	return left * Double(right)
+}
+
+@infix func * (left: Float, right: JGLayoutParameter) -> JGLayoutParameter {
+	return right * left
+}
+
+@infix func * (left: JGLayoutParameter, right: Int) -> JGLayoutParameter {
+	return left * Double(right)
+}
+
+@infix func * (left: Int, right: JGLayoutParameter) -> JGLayoutParameter {
+	return right * left
+}
+
+@infix func * (left: JGLayoutParameter, right: NSNumber) -> JGLayoutParameter {
+	return left * right.doubleValue
+}
+
+@infix func * (left: NSNumber, right: JGLayoutParameter) -> JGLayoutParameter {
+	return right * left.doubleValue
+}
+
+
+@infix func *= (left: JGLayoutParameter, right: Double) {
+	left.multiplier = right
+}
+
+
+@infix func *= (left: JGLayoutParameter, right: Float) {
+	left *= Double(right)
+}
+
+
+@infix func *= (left: JGLayoutParameter, right: Int) {
+	left *= Double(right)
+}
+
+
+@infix func *= (left: JGLayoutParameter, right: NSNumber) {
+	left *= right.doubleValue
+}
