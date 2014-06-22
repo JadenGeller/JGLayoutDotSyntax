@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA1622C61956FB14000716D3 /* JGLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1622C51956FB14000716D3 /* JGLayout.swift */; };
 		DAD56D401956B7EF003C0857 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D3F1956B7EF003C0857 /* AppDelegate.swift */; };
 		DAD56D421956B7EF003C0857 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D411956B7EF003C0857 /* ViewController.swift */; };
 		DAD56D451956B7EF003C0857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD56D431956B7EF003C0857 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA1622C51956FB14000716D3 /* JGLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGLayout.swift; sourceTree = "<group>"; };
 		DAD56D3A1956B7EF003C0857 /* LayoutDotSyntaxExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutDotSyntaxExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD56D3E1956B7EF003C0857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD56D3F1956B7EF003C0857 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				DAD56D891956BA3C003C0857 /* JGLayoutConstruction.swift */,
+				DA1622C51956FB14000716D3 /* JGLayout.swift */,
 				DAD56D8A1956BA3C003C0857 /* JGLayoutParameter.swift */,
 				DAD56D8B1956BA3C003C0857 /* UIViewExtension.swift */,
 				DAD56D881956BA3C003C0857 /* JGDynamicSizeLabel.swift */,
@@ -212,6 +215,7 @@
 				DAD56D421956B7EF003C0857 /* ViewController.swift in Sources */,
 				DAD56D8C1956BA3C003C0857 /* JGDynamicSizeLabel.swift in Sources */,
 				DAD56D401956B7EF003C0857 /* AppDelegate.swift in Sources */,
+				DA1622C61956FB14000716D3 /* JGLayout.swift in Sources */,
 				DAD56D8D1956BA3C003C0857 /* JGLayoutConstruction.swift in Sources */,
 				DAD56D8E1956BA3C003C0857 /* JGLayoutParameter.swift in Sources */,
 			);
@@ -402,6 +406,7 @@
 				DAD56D581956B7EF003C0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAD56D591956B7EF003C0857 /* Build configuration list for PBXNativeTarget "LayoutDotSyntaxExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +415,7 @@
 				DAD56D5B1956B7EF003C0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

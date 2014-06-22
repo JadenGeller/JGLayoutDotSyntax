@@ -54,36 +54,36 @@ class ViewController: UIViewController {
 		let size = JGLP(40.0)
 		let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
 		
-		purpleView.layoutWidth = JGLP(size.constant * 2.0)
-		purpleView.layoutHeight = JGLP(size.constant * 2.0)
-		purpleView.layoutRight = view.layoutRight
-		purpleView.layoutTop = view.layoutTop + statusBarHeight
+		purpleView.layout.width = JGLP(size.constant * 2.0)
+		purpleView.layout.height = JGLP(size.constant * 2.0)
+		purpleView.layout.right = view.layout.right
+		purpleView.layout.top = view.layout.top + statusBarHeight
 		
-		blueView.layoutLeft = view.layoutLeft
-		blueView.layoutCenterY = view.layoutCenterY
-		blueView.layoutHeight = size
-		blueView.layoutWidth = JGLP(190.0)
+		blueView.layout.left = view.layout.left
+		blueView.layout.centerY = view.layout.centerY
+		blueView.layout.height = size
+		blueView.layout.width = JGLP(190.0)
 		
-		redView.layoutWidth = size
-		redView.layoutHeight = size
-		redView.layoutCenterX = view.layoutCenterX[UILayoutPriorityDefaultHigh]
-		redView.layoutCenterY = view.layoutCenterY
-		redView.layoutLeft = (blueView.layoutRight + 10.0).withRelation(.GreaterThanOrEqual)
+		redView.layout.width = size
+		redView.layout.height = size
+		redView.layout.centerX = view.layout.centerX[UILayoutPriorityDefaultHigh]
+		redView.layout.centerY = view.layout.centerY
+		redView.layout.left = (blueView.layout.right + 10.0).withRelation(.GreaterThanOrEqual)
 		
 		let margin = 10.0
 		
-		yellowView.layoutLeft = blueView.layoutLeft + margin
-		yellowView.layoutRight = blueView.layoutRight - margin
-		yellowView.layoutTop = blueView.layoutTop + margin
-		yellowView.layoutBottom = blueView.layoutBottom - margin
+		yellowView.layout.left = blueView.layout.left + margin
+		yellowView.layout.right = blueView.layout.right - margin
+		yellowView.layout.top = blueView.layout.top + margin
+		yellowView.layout.bottom = blueView.layout.bottom - margin
 		
-		greenView.layoutBottom = view.layoutBottom
-		greenView.layoutHeight = view.layoutHeight * 0.2
-		greenView.layoutLeft = view.layoutLeft
-		greenView.layoutRight = view.layoutRight
+		greenView.layout.bottom = view.layout.bottom
+		greenView.layout.height = view.layout.height * 0.2
+		greenView.layout.left = view.layout.left
+		greenView.layout.right = view.layout.right
 		
-		label.layoutAlignment = greenView.layoutAlignment
-		label.fontSize = greenView.layoutHeight * 0.5
+		label.layout.alignment = greenView.layout.alignment
+		label.fontSize = greenView.layout.height * 0.5
 	}
 	
 	override func didReceiveMemoryWarning() {

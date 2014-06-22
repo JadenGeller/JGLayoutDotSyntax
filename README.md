@@ -19,7 +19,7 @@ view.addConstraint(NSLayoutConstraint(item: subview, attribute: .CenterX, relate
 can be rewritten in a short, simple, easily understood format using JGLayoutDotSyntax:
 
 ```swift
-subview.layoutCenterX = view.layoutCenterX
+subview.layout.centerX = view.layout.centerX
 ```
 
 
@@ -28,8 +28,8 @@ Conventional methods of creating autolayout constraints simply obfuscuate the in
 JGLayoutDotSyntax supports all features that NSLayoutConstraint does, including constants, multipliers, and priority. To add or subtract a constant to a constraint, simply use the plus (`+`) or minus (`-`) symbol:
 
 ```swift
-subview.layoutLeft = view.layoutLeft + 10.0
-subview.layoutRight = view.layoutRight - 10.0
+subview.layout.left = view.layout.left + 10.0
+subview.layout.right = view.layout.right - 10.0
 ```
 
 Any number object (e.g. Double, Float, Int, NSNumber) can be added or subtracted as a constant to a NSLayoutConstraint. Similiarly, multipliers can be specified with the multiplication (`*`) symbol, and different relationships (i.e. `NSLayoutRelation`), can be specified using the `withRelation()` method. For more info, refer to the documentation in the `JGLayoutConstruction.swift` file.
@@ -37,18 +37,18 @@ Any number object (e.g. Double, Float, Int, NSNumber) can be added or subtracted
 In cases where a constant size needs to be specified without a constraint, wrap the desired number object with the typealias `JGLP()` before setting the size:
 
 ```swift
-subview.layoutWidth = JGLP(42.0)
+subview.layout.width = JGLP(42.0)
 ```
 
 Additionally, JGLayoutDotSyntax allows priority to be specified. In favor of concision, a slightly irregular syntax is used. After a JGLayoutParameter, the subscript operator (`[]`) can be used to specifiy priority of a constraint, if needed. For example, we can lower the priority of centering our subview:
 
 ```swift
-subview.layoutCenterX = view.layoutCenterX[UILayoutPriorityDefaultLow]
+subview.layout.centerX = view.layout.centerX[UILayoutPriorityDefaultLow]
 ```
 
 The argument between the brackets should be a UILayoutPriority, which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
 
-Further, there exists convenience methods `layoutAlignment` and `layoutSize` and `layoutCenter` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
+Further, there exists convenience methods `.layout.alignment` and `.layout.size` and `.layout.center` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
 
 JGDynamicSizeLabel
 =================
@@ -57,7 +57,7 @@ One of the coolest parts of JGLayoutDotSyntax is the `JGDynamicSizeLabel` subcla
 
 ```swift
 var label = JGDynamicSizeLabel()
-label.fontSize = view.layoutHeight * 0.5
+label.fontSize = view.layout.height * 0.5
 ```
 
 In the above example, we set the label to have a font with half the value of view's height.
@@ -76,36 +76,36 @@ In order to better illustrate how JGLayoutDotSyntax is to be used, an example pr
 let size = JGLP(40.0)
 let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
 
-purpleView.layoutWidth = JGLP(size.constant * 2.0)
-purpleView.layoutHeight = JGLP(size.constant * 2.0)
-purpleView.layoutRight = view.layoutRight
-purpleView.layoutTop = view.layoutTop + statusBarHeight
+purpleView.layout.width = JGLP(size.constant * 2.0)
+purpleView.layout.height = JGLP(size.constant * 2.0)
+purpleView.layout.right = view.layout.right
+purpleView.layout.top = view.layout.top + statusBarHeight
 
-blueView.layoutLeft = view.layoutLeft
-blueView.layoutCenterY = view.layoutCenterY
-blueView.layoutHeight = size
-blueView.layoutWidth = JGLP(190.0)
+blueView.layout.left = view.layout.left
+blueView.layout.centerY = view.layout.centerY
+blueView.layout.height = size
+blueView.layout.width = JGLP(190.0)
 
-redView.layoutWidth = size
-redView.layoutHeight = size
-redView.layoutCenterX = view.layoutCenterX[UILayoutPriorityDefaultHigh]
-redView.layoutCenterY = view.layoutCenterY
-redView.layoutLeft = (blueView.layoutRight + 10.0).withRelation(.GreaterThanOrEqual)
+redView.layout.width = size
+redView.layout.height = size
+redView.layout.centerX = view.layout.centerX[UILayoutPriorityDefaultHigh]
+redView.layout.centerY = view.layout.centerY
+redView.layout.left = (blueView.layout.right + 10.0).withRelation(.GreaterThanOrEqual)
 
 let margin = 10.0
 
-yellowView.layoutLeft = blueView.layoutLeft + margin
-yellowView.layoutRight = blueView.layoutRight - margin
-yellowView.layoutTop = blueView.layoutTop + margin
-yellowView.layoutBottom = blueView.layoutBottom - margin
+yellowView.layout.left = blueView.layout.left + margin
+yellowView.layout.right = blueView.layout.right - margin
+yellowView.layout.top = blueView.layout.top + margin
+yellowView.layout.bottom = blueView.layout.bottom - margin
 
-greenView.layoutBottom = view.layoutBottom
-greenView.layoutHeight = view.layoutHeight * 0.2
-greenView.layoutLeft = view.layoutLeft
-greenView.layoutRight = view.layoutRight
+greenView.layout.bottom = view.layout.bottom
+greenView.layout.height = view.layout.height * 0.2
+greenView.layout.left = view.layout.left
+greenView.layout.right = view.layout.right
 
-label.layoutAlignment = greenView.layoutAlignment
-label.fontSize = greenView.layoutHeight * 0.5
+label.layout.alignment = greenView.layout.alignment
+label.fontSize = greenView.layout.height * 0.5
 ```
 
 Displayed on a portrait-oriented and a landscape-oriented iPhone, the above layout would look like the images below:
