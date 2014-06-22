@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import QuartzCore
 
 class JGDynamicSizeLabel: UILabel {
 	
@@ -22,50 +23,60 @@ class JGDynamicSizeLabel: UILabel {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var fontSize: AnyObject? {
+	var fontSize: AnyObject! {
 	get {
 		return parameter
 	}
 	set {
 		if !newValue {
 			parameter = nil
-		} else if let fontSizeMultiplier = newValue as? Double {
-			font = font.fontWithSize(font.pointSize * fontSizeMultiplier)
 		} else if let fontSizeMultiplier = newValue as? JGLayoutParameter {
 			if (fontSizeMultiplier.attribute == NSLayoutAttribute.Width) || (fontSizeMultiplier.attribute == NSLayoutAttribute.Height) {
 				parameter = fontSizeMultiplier
+			}
+		} else if let fontSizeMultiplier = newValue as? Double {
+			font = font.fontWithSize(font.pointSize * fontSizeMultiplier)
+		}
+	}
+	}
+	
+	var parameter: JGLayoutParameter! {
+	willSet {
+		if let p = parameter {
+			if var view = p.object as? UIView {
+				view.layer.removeObserver(self, forKeyPath:"bounds")
+			}
+		}
+	}
+	didSet {
+		if let p = parameter {
+			if var view = p.object as? UIView {
+				view.layer.addObserver(self, forKeyPath: "bounds", options: .New, context: nil)
 			}
 		}
 	}
 	}
 	
-	var parameter: JGLayoutParameter? {
-	willSet {
-		if let p = parameter {
-			var view = p.object as UIView
-			view.layer.removeObserver(self, forKeyPath:"bounds.size")
-		}
-	}
-	didSet {
-		if let p = parameter {
-			var view = p.object as UIView
-			view.layer.addObserver(self, forKeyPath: "bounds", options: .New, context: nil)
-		}
-	}
+	
+	convenience init() {
+		self.init(frame: CGRectZero)
 	}
 	
+	init(frame: CGRect) {
+		super.init(frame: frame)
+	}
 	
 	override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: NSDictionary!, context: CMutableVoidPointer) {
 		if let p = parameter {
-			var view = p.object as UIView
-			var viewObject = object as UIView
-			if (viewObject == view.layer) && (keyPath == "bounds") {
+			var view = p.object as? UIView
+			var viewObject = object as? CALayer
+			if view && (viewObject == view!.layer) && (keyPath == "bounds") {
 				var size = 0.0
 				switch p.attribute {
 				case .Width:
-					size = view.bounds.size.width
+					size = view!.bounds.size.width
 				case .Height:
-					size = view.bounds.size.height
+					size = view!.bounds.size.height
 				default:
 					break
 				}

@@ -251,9 +251,9 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutAlignment: Array<JGLayoutParameter> {
+	var layoutAlignment: Array<JGLayoutParameter!> {
 	get {
-		return [layoutTop, layoutBottom, layoutLeft, layoutRight] as Array<JGLayoutParameter>
+		return [layoutTop, layoutBottom, layoutLeft, layoutRight] as Array<JGLayoutParameter!>
 	}
 	set {
 		assert(newValue.count == 4, "Invalid alignment: Alignment array does not contain 4 objects")
@@ -290,9 +290,9 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutSize: Array<JGLayoutParameter> {
+	var layoutSize: Array<JGLayoutParameter!> {
 	get {
-		return [layoutWidth, layoutHeight] as Array<JGLayoutParameter>
+		return [layoutWidth, layoutHeight] as Array<JGLayoutParameter!>
 	}
 	set {
 		assert(newValue.count == 2, "Invalid size: Size array does not contain 2 objects")
@@ -321,9 +321,9 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutCenter: Array<JGLayoutParameter> {
+	var layoutCenter: Array<JGLayoutParameter!> {
 	get {
-		return [layoutCenterX, layoutCenterY] as Array<JGLayoutParameter>
+		return [layoutCenterX, layoutCenterY] as Array<JGLayoutParameter!>
 	}
 	set {
 		assert(newValue.count == 2, "Invalid position: Position array does not contain 2 objects")
@@ -346,10 +346,14 @@ extension UIView {
 		
 		// Remove all constraints relating to self and attribute from all superviews of self
 		do {
-			for constraint in view.constraints() as Array<NSLayoutConstraint> {
-				if (((constraint.firstItem as NSObject) == self) && (constraint.firstAttribute == attribute)) ||
-					((constraint.secondItem as NSObject) == self) && (constraint.secondAttribute == attribute) {
-						view.removeConstraint(constraint)
+			for constraint: AnyObject in view.constraints() {
+				if let constraint = constraint as? NSLayoutConstraint {
+					let firstItem = constraint.firstItem as? UIView
+					let secondItem = constraint.secondItem as? UIView
+					if ((firstItem == self) && (constraint.firstAttribute == attribute)) ||
+						((secondItem == self) && (constraint.secondAttribute == attribute)) {
+							view.removeConstraint(constraint)
+					}
 				}
 			}
 			view = view.superview
@@ -415,7 +419,7 @@ extension UIView {
 		}
 		return true
 	}
-
+	
 	func viewWithDisplacementFromTopOfHierarchy(displacement: Int) -> UIView {
 		return superviewOfOrder(displacementFromTopOfHierarchy - displacement)
 	}
