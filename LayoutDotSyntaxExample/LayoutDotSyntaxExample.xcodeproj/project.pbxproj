@@ -11,6 +11,10 @@
 		DAD56D421956B7EF003C0857 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D411956B7EF003C0857 /* ViewController.swift */; };
 		DAD56D451956B7EF003C0857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD56D431956B7EF003C0857 /* Main.storyboard */; };
 		DAD56D471956B7EF003C0857 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD56D461956B7EF003C0857 /* Images.xcassets */; };
+		DAD56D8C1956BA3C003C0857 /* JGDynamicSizeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D881956BA3C003C0857 /* JGDynamicSizeLabel.swift */; };
+		DAD56D8D1956BA3C003C0857 /* JGLayoutConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D891956BA3C003C0857 /* JGLayoutConstruction.swift */; };
+		DAD56D8E1956BA3C003C0857 /* JGLayoutParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D8A1956BA3C003C0857 /* JGLayoutParameter.swift */; };
+		DAD56D8F1956BA3C003C0857 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D8B1956BA3C003C0857 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,10 @@
 		DAD56D441956B7EF003C0857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAD56D461956B7EF003C0857 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAD56D4C1956B7EF003C0857 /* LayoutDotSyntaxExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayoutDotSyntaxExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAD56D881956BA3C003C0857 /* JGDynamicSizeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGDynamicSizeLabel.swift; sourceTree = "<group>"; };
+		DAD56D891956BA3C003C0857 /* JGLayoutConstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGLayoutConstruction.swift; sourceTree = "<group>"; };
+		DAD56D8A1956BA3C003C0857 /* JGLayoutParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGLayoutParameter.swift; sourceTree = "<group>"; };
+		DAD56D8B1956BA3C003C0857 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		DAD56D311956B7EF003C0857 = {
 			isa = PBXGroup;
 			children = (
+				DAD56D871956BA3C003C0857 /* JGLayoutDotSyntax */,
 				DAD56D3C1956B7EF003C0857 /* LayoutDotSyntaxExample */,
 				DAD56D3B1956B7EF003C0857 /* Products */,
 			);
@@ -86,6 +95,18 @@
 				DAD56D3E1956B7EF003C0857 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAD56D871956BA3C003C0857 /* JGLayoutDotSyntax */ = {
+			isa = PBXGroup;
+			children = (
+				DAD56D891956BA3C003C0857 /* JGLayoutConstruction.swift */,
+				DAD56D8A1956BA3C003C0857 /* JGLayoutParameter.swift */,
+				DAD56D8B1956BA3C003C0857 /* UIViewExtension.swift */,
+				DAD56D881956BA3C003C0857 /* JGDynamicSizeLabel.swift */,
+			);
+			name = JGLayoutDotSyntax;
+			path = ../JGLayoutDotSyntax;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +208,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD56D8F1956BA3C003C0857 /* UIViewExtension.swift in Sources */,
 				DAD56D421956B7EF003C0857 /* ViewController.swift in Sources */,
+				DAD56D8C1956BA3C003C0857 /* JGDynamicSizeLabel.swift in Sources */,
 				DAD56D401956B7EF003C0857 /* AppDelegate.swift in Sources */,
+				DAD56D8D1956BA3C003C0857 /* JGLayoutConstruction.swift in Sources */,
+				DAD56D8E1956BA3C003C0857 /* JGLayoutParameter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
