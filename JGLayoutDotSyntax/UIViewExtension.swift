@@ -15,8 +15,8 @@ extension UIView {
  
  @code
  
- viewA.top = viewB.bottom; // aligns top edge of viewA to bottom edge of viewB
- viewC.top = viewD.top;    // aligns top edge of viewC to top edge of viewD
+ viewA.layoutTop = viewB.layoutBottom; // aligns top edge of viewA to bottom edge of viewB
+ viewC.layoutTop = viewD.layoutTop;    // aligns top edge of viewC to top edge of viewD
  
  @endcode
  
@@ -36,8 +36,8 @@ extension UIView {
  
  @code
  
- viewA.bottom = viewB.bottom; // aligns bottom edge of viewA to bottom edge of viewB
- viewC.bottom = viewD.top;    // aligns bottom edge of viewC to top edge of viewD
+ viewA.layoutBottom = viewB.layoutBottom; // aligns bottom edge of viewA to bottom edge of viewB
+ viewC.layoutBottom = viewD.layoutTop;    // aligns bottom edge of viewC to top edge of viewD
  
  @endcode
  
@@ -57,8 +57,8 @@ extension UIView {
  
  @code
  
- viewA.left = viewB.right; // aligns left edge of viewA to right edge of viewB
- viewC.left = viewD.left;  // aligns left edge of viewC to left edge of viewD
+ viewA.layoutLeft = viewB.layoutRight; // aligns left edge of viewA to right edge of viewB
+ viewC.layoutLeft = viewD.layoutLeft;  // aligns left edge of viewC to left edge of viewD
  
  @endcode
  
@@ -78,8 +78,8 @@ extension UIView {
  
  @code
  
- viewA.right = viewB.right; // aligns right edge of viewA to right edge of viewB
- viewC.right = viewD.left;  // aligns right edge of viewC to left edge of viewD
+ viewA.layoutRight = viewB.layoutRight; // aligns right edge of viewA to right edge of viewB
+ viewC.layoutRight = viewD.layoutLeft;  // aligns right edge of viewC to left edge of viewD
  
  @endcode
  
@@ -99,8 +99,8 @@ extension UIView {
  
  @code
  
- viewA.leading = viewB.trailing; // aligns leading edge of viewA to the trailing edge of viewB
- viewC.leading = viewD.leading;  // aligns leading edge of viewC to the leading edge of viewD
+ viewA.layoutLeading = viewB.layoutTrailing; // aligns leading edge of viewA to the trailing edge of viewB
+ viewC.layoutLeading = viewD.layoutLeading;  // aligns leading edge of viewC to the leading edge of viewD
  
  @endcode
  
@@ -120,8 +120,8 @@ extension UIView {
  
  @code
  
- viewA.trailing = viewB.trailing; // aligns trailing edge of viewA to the trailing edge of viewB
- viewC.trailing = viewD.leading;  // aligns trailing edge of viewC to the leading edge of viewD
+ viewA.layoutTrailing = viewB.layoutTrailing; // aligns trailing edge of viewA to the trailing edge of viewB
+ viewC.layoutTrailing = viewD.layoutLeading;  // aligns trailing edge of viewC to the leading edge of viewD
  
  @endcode
  
@@ -141,8 +141,8 @@ extension UIView {
  
  @code
  
- viewA.width = viewB.width; // sets viewA width to match that of viewB
- viewC.width = @50;         // sets viewC width to 50 points
+ viewA.layoutWidth = viewB.layoutWidth; // sets viewA width to match that of viewB
+ viewC.layoutWidth = @50;         // sets viewC width to 50 points
  
  @endcode
  
@@ -162,8 +162,8 @@ extension UIView {
  
  @code
  
- viewA.height = viewB.height; // sets viewA height to match that of viewB
- viewC.height = @50;          // sets viewC height to 50 points
+ viewA.layoutHeight = viewB.layoutHeight; // sets viewA height to match that of viewB
+ viewC.layoutHeight = @50;          // sets viewC height to 50 points
  
  @endcode
  
@@ -183,7 +183,7 @@ extension UIView {
  
  @code
  
- viewA.centerX = viewB.centerX; // sets viewA center along the x-axis to match that of viewB
+ viewA.layoutCenterX = viewB.layoutCenterX; // sets viewA center along the x-axis to match that of viewB
  
  @endcode
  
@@ -203,7 +203,7 @@ extension UIView {
  
  @code
  
- viewA.centerY = viewB.centerY; // sets viewA center along the y-axis to match that of viewB
+ viewA.layoutCenterY = viewB.layoutCenterY; // sets viewA center along the y-axis to match that of viewB
  
  @endcode
  
@@ -223,7 +223,7 @@ extension UIView {
  
  @code
  
- viewA.baseline = viewB.baseline; // sets viewA's baseline to match that of viewB
+ viewA.layoutBaseline = viewB.layoutBaseline; // sets viewA's baseline to match that of viewB
  
  @endcode
  
@@ -243,8 +243,8 @@ extension UIView {
  
  @code
  
- viewA.alignment = viewB.alignment; // sets viewA's top, bottom, left, and right to that of viewB
- viewC.alignment = @[viewD.top, viewD.bottom, viewE.left, viewF.right];
+ viewA.layoutAlignment = viewB.layoutAlignment; // sets viewA's top, bottom, left, and right to that of viewB
+ viewC.layoutAlignment = @[viewD.layoutTop, viewD.layoutBottom, viewE.layoutLeft, viewF.layoutRight];
  
  @endcode
  
@@ -282,8 +282,8 @@ extension UIView {
  
  @code
  
- viewA.size = viewB.size; // sets viewA's width and height to that of viewB
- viewC.size = @[viewD.width, viewE.height];
+ viewA.layoutSize = viewB.layoutSize; // sets viewA's width and height to that of viewB
+ viewC.layoutSize = @[viewD.layoutWidth, viewE.layoutHeight];
  
  @endcode
  
@@ -313,15 +313,15 @@ extension UIView {
  
  @code
  
- viewA.center = viewB.center; // sets viewA's centerX and centerY to that of viewB
- viewC.center = @[viewD.centerX, viewE.centerY];
+ viewA.layoutCenter = viewB.layoutCenter; // sets viewA's centerX and centerY to that of viewB
+ viewC.layoutCenter = @[viewD.layoutCenterX, viewE.layoutCenterY];
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutPosition: Array<JGLayoutParameter> {
+	var layoutCenter: Array<JGLayoutParameter> {
 	get {
 		return [layoutCenterX, layoutCenterY]
 	}
