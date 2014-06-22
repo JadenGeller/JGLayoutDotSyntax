@@ -23,7 +23,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutTop: AnyObject! {
+	var layoutTop: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Top)
 	}
@@ -44,7 +44,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutBottom: AnyObject! {
+	var layoutBottom: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Bottom)
 	}
@@ -65,7 +65,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
 	
 	*/
-	var layoutLeft: AnyObject! {
+	var layoutLeft: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Left)
 	}
@@ -86,7 +86,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutRight: AnyObject! {
+	var layoutRight: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Right)
 	}
@@ -107,7 +107,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutLeading: AnyObject! {
+	var layoutLeading: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Leading)
 	}
@@ -128,7 +128,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutTrailing: AnyObject! {
+	var layoutTrailing: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Trailing)
 	}
@@ -149,7 +149,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutWidth: AnyObject! {
+	var layoutWidth: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Width)
 	}
@@ -170,7 +170,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutHeight: AnyObject! {
+	var layoutHeight: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Height)
 	}
@@ -190,7 +190,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutCenterX: AnyObject! {
+	var layoutCenterX: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .CenterX)
 	}
@@ -210,7 +210,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutCenterY: AnyObject! {
+	var layoutCenterY: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .CenterY)
 	}
@@ -230,7 +230,7 @@ extension UIView {
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutBaseline: AnyObject! {
+	var layoutBaseline: JGLayoutParameter! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Baseline)
 	}
@@ -340,6 +340,9 @@ extension UIView {
 	}
 	}
 	
+}
+
+extension UIView {
 	
 	func removeLayoutConstraintsForAttribute(attribute: NSLayoutAttribute) {
 		var view = self

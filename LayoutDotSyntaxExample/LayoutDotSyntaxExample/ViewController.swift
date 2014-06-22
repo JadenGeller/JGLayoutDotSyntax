@@ -51,37 +51,39 @@ class ViewController: UIViewController {
 		
 		
 		// Set up layout constraints using dot syntax.
-		let size = 40.0
+		let size = JGLP(40.0)
 		let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
 		
-		purpleView.layoutWidth = size * 2.0
-		purpleView.layoutHeight = size * 2.0
+		purpleView.layoutWidth = JGLP(size.constant * 2.0)
+		purpleView.layoutHeight = JGLP(size.constant * 2.0)
 		purpleView.layoutRight = view.layoutRight
-		purpleView.layoutTop = (view.layoutTop as JGLayoutParameter) + statusBarHeight
+		purpleView.layoutTop = view.layoutTop + statusBarHeight
 		
 		blueView.layoutLeft = view.layoutLeft
 		blueView.layoutCenterY = view.layoutCenterY
 		blueView.layoutHeight = size
-		blueView.layoutWidth = 190.0
+		blueView.layoutWidth = JGLP(190.0)
 		
 		redView.layoutWidth = size
 		redView.layoutHeight = size
-		redView.layoutCenterX = (view.layoutCenterX as JGLayoutParameter)[UILayoutPriorityDefaultHigh]
+		redView.layoutCenterX = view.layoutCenterX[UILayoutPriorityDefaultHigh]
 		redView.layoutCenterY = view.layoutCenterY
-		redView.layoutLeft = ((blueView.layoutRight as JGLayoutParameter) + 10.0).withRelation(.GreaterThanOrEqual)
+		redView.layoutLeft = (blueView.layoutRight + 10.0).withRelation(.GreaterThanOrEqual)
 		
-		yellowView.layoutLeft = (blueView.layoutLeft as JGLayoutParameter) + 10.0
-		yellowView.layoutRight = (blueView.layoutRight as JGLayoutParameter) - 10.0
-		yellowView.layoutTop = (blueView.layoutTop as JGLayoutParameter) + 10.0
-		yellowView.layoutBottom = (blueView.layoutBottom as JGLayoutParameter) - 10.0
+		let margin = 10.0
+		
+		yellowView.layoutLeft = blueView.layoutLeft + margin
+		yellowView.layoutRight = blueView.layoutRight - margin
+		yellowView.layoutTop = blueView.layoutTop + margin
+		yellowView.layoutBottom = blueView.layoutBottom - margin
 		
 		greenView.layoutBottom = view.layoutBottom
-		greenView.layoutHeight = (view.layoutHeight as JGLayoutParameter) * 0.2
+		greenView.layoutHeight = view.layoutHeight * 0.2
 		greenView.layoutLeft = view.layoutLeft
 		greenView.layoutRight = view.layoutRight
 		
 		label.layoutAlignment = greenView.layoutAlignment
-		label.fontSize = (greenView.layoutHeight as JGLayoutParameter) * 0.5
+		label.fontSize = greenView.layoutHeight * 0.5
 	}
 	
 	override func didReceiveMemoryWarning() {

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias JGLP = JGLayoutParameter
+
 class JGLayoutParameter: NSObject, JGLayoutConstruction {
 	
 	var object: AnyObject?
@@ -48,6 +50,17 @@ class JGLayoutParameter: NSObject, JGLayoutConstruction {
 	convenience init(constant: Double) {
 		self.init()
 		self.constant = constant
+	}
+	
+	/** Returns an initialized JGLayoutParameter with the constant set. It is not necessary to use this, however, as the JGLayoutConstruction protocol for the NSNumber class allows NSNumbers to be used as constant JGLayoutParameters.
+ 
+ @param number A number object (e.g. Double, Float, Int, NSNumber) representing the desired NSLayoutConstraint constant.
+ 
+ @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
+ 
+	*/
+	convenience init(_ number: AnyObject) {
+		self.init(constant: number as Double)
 	}
 	
 	/** Returns an initialized JGLayoutParameter with the object and attribute set. It is not necessary to use this, however, as the Layout category for the UIView class adds properties with getters that return JGLayoutParameters with the requested attributes.
@@ -134,139 +147,41 @@ extension NSNumber {
 }
 
 
-@infix func + (left: JGLayoutParameter, right: Double) -> JGLayoutParameter {
-	left.constant += right
-	return left
+@infix func + (left: JGLayoutParameter, right: AnyObject) -> JGLayoutParameter {
+	var parameter = left.copy() as JGLayoutParameter
+	parameter.constant += right as Double
+	return parameter
 }
 
-@infix func + (left: Double, right: JGLayoutParameter) -> JGLayoutParameter {
+@infix func + (left: AnyObject, right: JGLayoutParameter) -> JGLayoutParameter {
 	return right + left
 }
 
-@infix func + (left: JGLayoutParameter, right: Float) -> JGLayoutParameter {
-	return left + Double(right)
-}
-
-@infix func + (left: Float, right: JGLayoutParameter) -> JGLayoutParameter {
-	return right + left
-}
-
-@infix func + (left: JGLayoutParameter, right: Int) -> JGLayoutParameter {
-	return left + Double(right)
-}
-
-@infix func + (left: Int, right: JGLayoutParameter) -> JGLayoutParameter {
-	return right + left
-}
-
-@infix func + (left: JGLayoutParameter, right: NSNumber) -> JGLayoutParameter {
-	return left + right.doubleValue
-}
-
-@infix func + (left: NSNumber, right: JGLayoutParameter) -> JGLayoutParameter {
-	return right + left.doubleValue
+@infix func - (left: JGLayoutParameter, right: AnyObject) -> JGLayoutParameter {
+	return left + -(right as Double)
 }
 
 
-@infix func - (left: JGLayoutParameter, right: Double) -> JGLayoutParameter {
-	return left + -right
+@infix func += (left: JGLayoutParameter, right: AnyObject) {
+	left.constant += right as Double
 }
 
-@infix func - (left: JGLayoutParameter, right: Float) -> JGLayoutParameter {
-	return left + Double(-right)
-}
-
-@infix func - (left: JGLayoutParameter, right: Int) -> JGLayoutParameter {
-	return left + Double(-right)
-}
-
-@infix func - (left: JGLayoutParameter, right: NSNumber) -> JGLayoutParameter {
-	return left + -right.doubleValue
+@infix func -= (left: JGLayoutParameter, right: AnyObject) {
+	left.constant -= right as Double
 }
 
 
-@infix func += (left: JGLayoutParameter, right: Double) {
-	left.constant += right
+@infix func * (left: JGLayoutParameter, right: AnyObject) -> JGLayoutParameter {
+	var parameter = left.copy() as JGLayoutParameter
+	parameter.multiplier = right as Double
+	return parameter
 }
 
-@infix func -= (left: JGLayoutParameter, right: Double) {
-	left.constant -= right
-}
-
-@infix func += (left: JGLayoutParameter, right: Float) {
-	left += Double(right)
-}
-
-@infix func -= (left: JGLayoutParameter, right: Float) {
-	left -= Double(right)
-}
-
-@infix func += (left: JGLayoutParameter, right: Int) {
-	left += Double(right)
-}
-
-@infix func -= (left: JGLayoutParameter, right: Int) {
-	left -= Double(right)
-}
-
-@infix func += (left: JGLayoutParameter, right: NSNumber) {
-	left += right.doubleValue
-}
-
-@infix func -= (left: JGLayoutParameter, right: NSNumber) {
-	left -= right.doubleValue
-}
-
-
-@infix func * (left: JGLayoutParameter, right: Double) -> JGLayoutParameter {
-	left.multiplier = right
-	return left
-}
-
-@infix func * (left: Double, right: JGLayoutParameter) -> JGLayoutParameter {
+@infix func * (left: AnyObject, right: JGLayoutParameter) -> JGLayoutParameter {
 	return right * left
 }
 
-@infix func * (left: JGLayoutParameter, right: Float) -> JGLayoutParameter {
-	return left * Double(right)
-}
 
-@infix func * (left: Float, right: JGLayoutParameter) -> JGLayoutParameter {
-	return right * left
-}
-
-@infix func * (left: JGLayoutParameter, right: Int) -> JGLayoutParameter {
-	return left * Double(right)
-}
-
-@infix func * (left: Int, right: JGLayoutParameter) -> JGLayoutParameter {
-	return right * left
-}
-
-@infix func * (left: JGLayoutParameter, right: NSNumber) -> JGLayoutParameter {
-	return left * right.doubleValue
-}
-
-@infix func * (left: NSNumber, right: JGLayoutParameter) -> JGLayoutParameter {
-	return right * left.doubleValue
-}
-
-
-@infix func *= (left: JGLayoutParameter, right: Double) {
-	left.multiplier = right
-}
-
-
-@infix func *= (left: JGLayoutParameter, right: Float) {
-	left *= Double(right)
-}
-
-
-@infix func *= (left: JGLayoutParameter, right: Int) {
-	left *= Double(right)
-}
-
-
-@infix func *= (left: JGLayoutParameter, right: NSNumber) {
-	left *= right.doubleValue
+@infix func *= (left: JGLayoutParameter, right: AnyObject) {
+	left.multiplier = right as Double
 }

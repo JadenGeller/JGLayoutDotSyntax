@@ -25,15 +25,22 @@ subview.layoutCenterX = view.layoutCenterX
 
 Conventional methods of creating autolayout constraints simply obfuscuate the intent, causing difficult to read and often buggy code. JGLayoutDotSyntax aims to fix that. The advantages achieved are even more stunning when you realize that each subview usually has about four NSLayoutConstraints created to define its location.
 
-JGLayoutDotSyntax supports all features that NSLayoutConstraint does, including constants, multipliers, and priority. Because of the limitations of Objective-C, constants can not simply be added with the plus symbol. Instead, JGLayoutParameter implements an add method that can be used as follows:
+JGLayoutDotSyntax supports all features that NSLayoutConstraint does, including constants, multipliers, and priority. To add or subtract a constant to a constraint, simply use the plus (`+`) or minus (`-`) symbol:
 
 ```swift
 subview.layoutLeft = view.layoutLeft + 10.0
+subview.layoutRight = view.layoutRight - 10.0
 ```
 
-The add method takes a Double as an input argument and sets it as the NSLayoutConstraint's constant. Similiarly, multipliers can be specified with the muliply method and different relationships, such as NSLayoutRelationGreaterThanOrEqual, can be specified using the withRelation method. For more info, refer to the documentation in the JGLayoutConstruction.h file.
+Any number object (e.g. Double, Float, Int, NSNumber) can be added or subtracted as a constant to a NSLayoutConstraint. Similiarly, multipliers can be specified with the multiplication (`*`) symbol, and different relationships (i.e. `NSLayoutRelation`), can be specified using the `withRelation()` method. For more info, refer to the documentation in the `JGLayoutConstruction.swift` file.
 
-Additionally, JGLayoutDotSyntax allows priority to be specified. In favor of concision, a slightly irregular syntax is used. After a JGLayoutParameter, square backets can be used to specifiy priority of a constraint, if needed. For example, we can lower the priority of centering our subview:
+In cases where a constant size needs to be specified without a constraint, wrap the desired number object with the typealias `JGLP()` before setting the size:
+
+```swift
+subview.layoutWidth = JGLP(42.0)
+```
+
+Additionally, JGLayoutDotSyntax allows priority to be specified. In favor of concision, a slightly irregular syntax is used. After a JGLayoutParameter, the subscript operator (`[]`) can be used to specifiy priority of a constraint, if needed. For example, we can lower the priority of centering our subview:
 
 ```swift
 subview.layoutCenterX = view.layoutCenterX[UILayoutPriorityDefaultLow]
@@ -50,7 +57,7 @@ One of the coolest parts of JGLayoutDotSyntax is the `JGDynamicSizeLabel` subcla
 
 ```swift
 var label = JGDynamicSizeLabel()
-label.fontSize = view.layoutHeight * .5
+label.fontSize = view.layoutHeight * 0.5
 ```
 
 In the above example, we set the label to have a font with half the value of view's height.
@@ -66,18 +73,18 @@ Example
 In order to better illustrate how JGLayoutDotSyntax is to be used, an example project is included that makes use of this syntax. Below is the relevant section of the example project:
 
 ```swift
-let size = 40.0
+let size = JGLP(40.0)
 let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
 
-purpleView.layoutHeight = constraintForKeyPath("value")
-purpleView.layoutWidth = purpleView.layoutHeight + 10.0
+purpleView.layoutWidth = JGLP(size.constant * 2.0)
+purpleView.layoutHeight = JGLP(size.constant * 2.0)
 purpleView.layoutRight = view.layoutRight
 purpleView.layoutTop = view.layoutTop + statusBarHeight
 
 blueView.layoutLeft = view.layoutLeft
 blueView.layoutCenterY = view.layoutCenterY
 blueView.layoutHeight = size
-blueView.layoutWidth = 190.0
+blueView.layoutWidth = JGLP(190.0)
 
 redView.layoutWidth = size
 redView.layoutHeight = size
@@ -93,12 +100,12 @@ yellowView.layoutTop = blueView.layoutTop + margin
 yellowView.layoutBottom = blueView.layoutBottom - margin
 
 greenView.layoutBottom = view.layoutBottom
-greenView.height = view.layoutHeight * .2
+greenView.layoutHeight = view.layoutHeight * 0.2
 greenView.layoutLeft = view.layoutLeft
 greenView.layoutRight = view.layoutRight
 
 label.layoutAlignment = greenView.layoutAlignment
-label.fontSize = greenView.layoutHeight * .5
+label.fontSize = greenView.layoutHeight * 0.5
 ```
 
 Displayed on a portrait-oriented and a landscape-oriented iPhone, the above layout would look like the images below:
