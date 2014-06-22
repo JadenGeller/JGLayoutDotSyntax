@@ -15,15 +15,15 @@ extension UIView {
  
  @code
  
- viewA.layoutTop = viewB.layoutBottom; // aligns top edge of viewA to bottom edge of viewB
- viewC.layoutTop = viewD.layoutTop;    // aligns top edge of viewC to top edge of viewD
+ viewA.layoutTop = viewB.layoutBottom // aligns top edge of viewA to bottom edge of viewB
+ viewC.layoutTop = viewD.layoutTop    // aligns top edge of viewC to top edge of viewD
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutTop: JGLayoutParameter {
+	var layoutTop: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Top)
 	}
@@ -36,15 +36,15 @@ extension UIView {
  
  @code
  
- viewA.layoutBottom = viewB.layoutBottom; // aligns bottom edge of viewA to bottom edge of viewB
- viewC.layoutBottom = viewD.layoutTop;    // aligns bottom edge of viewC to top edge of viewD
+ viewA.layoutBottom = viewB.layoutBottom // aligns bottom edge of viewA to bottom edge of viewB
+ viewC.layoutBottom = viewD.layoutTop    // aligns bottom edge of viewC to top edge of viewD
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutBottom: JGLayoutParameter {
+	var layoutBottom: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Bottom)
 	}
@@ -57,15 +57,15 @@ extension UIView {
  
  @code
  
- viewA.layoutLeft = viewB.layoutRight; // aligns left edge of viewA to right edge of viewB
- viewC.layoutLeft = viewD.layoutLeft;  // aligns left edge of viewC to left edge of viewD
+ viewA.layoutLeft = viewB.layoutRight // aligns left edge of viewA to right edge of viewB
+ viewC.layoutLeft = viewD.layoutLeft  // aligns left edge of viewC to left edge of viewD
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
 	
 	*/
-	var layoutLeft: JGLayoutParameter {
+	var layoutLeft: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Left)
 	}
@@ -78,15 +78,15 @@ extension UIView {
  
  @code
  
- viewA.layoutRight = viewB.layoutRight; // aligns right edge of viewA to right edge of viewB
- viewC.layoutRight = viewD.layoutLeft;  // aligns right edge of viewC to left edge of viewD
+ viewA.layoutRight = viewB.layoutRight // aligns right edge of viewA to right edge of viewB
+ viewC.layoutRight = viewD.layoutLeft  // aligns right edge of viewC to left edge of viewD
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutRight: JGLayoutParameter {
+	var layoutRight: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Right)
 	}
@@ -99,15 +99,15 @@ extension UIView {
  
  @code
  
- viewA.layoutLeading = viewB.layoutTrailing; // aligns leading edge of viewA to the trailing edge of viewB
- viewC.layoutLeading = viewD.layoutLeading;  // aligns leading edge of viewC to the leading edge of viewD
+ viewA.layoutLeading = viewB.layoutTrailing // aligns leading edge of viewA to the trailing edge of viewB
+ viewC.layoutLeading = viewD.layoutLeading  // aligns leading edge of viewC to the leading edge of viewD
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutLeading: JGLayoutParameter {
+	var layoutLeading: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Leading)
 	}
@@ -120,15 +120,15 @@ extension UIView {
  
  @code
  
- viewA.layoutTrailing = viewB.layoutTrailing; // aligns trailing edge of viewA to the trailing edge of viewB
- viewC.layoutTrailing = viewD.layoutLeading;  // aligns trailing edge of viewC to the leading edge of viewD
+ viewA.layoutTrailing = viewB.layoutTrailing // aligns trailing edge of viewA to the trailing edge of viewB
+ viewC.layoutTrailing = viewD.layoutLeading  // aligns trailing edge of viewC to the leading edge of viewD
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutTrailing: JGLayoutParameter {
+	var layoutTrailing: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Trailing)
 	}
@@ -141,15 +141,15 @@ extension UIView {
  
  @code
  
- viewA.layoutWidth = viewB.layoutWidth; // sets viewA width to match that of viewB
- viewC.layoutWidth = @50;         // sets viewC width to 50 points
+ viewA.layoutWidth = viewB.layoutWidth // sets viewA width to match that of viewB
+ viewC.layoutWidth = 50.0              // sets viewC width to 50 points
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutWidth: JGLayoutParameter {
+	var layoutWidth: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Width)
 	}
@@ -162,15 +162,15 @@ extension UIView {
  
  @code
  
- viewA.layoutHeight = viewB.layoutHeight; // sets viewA height to match that of viewB
- viewC.layoutHeight = @50;          // sets viewC height to 50 points
+ viewA.layoutHeight = viewB.layoutHeight // sets viewA height to match that of viewB
+ viewC.layoutHeight = 50.0               // sets viewC height to 50 points
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutHeight: JGLayoutParameter {
+	var layoutHeight: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Height)
 	}
@@ -183,14 +183,14 @@ extension UIView {
  
  @code
  
- viewA.layoutCenterX = viewB.layoutCenterX; // sets viewA center along the x-axis to match that of viewB
+ viewA.layoutCenterX = viewB.layoutCenterX // sets viewA center along the x-axis to match that of viewB
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutCenterX: JGLayoutParameter {
+	var layoutCenterX: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .CenterX)
 	}
@@ -203,14 +203,14 @@ extension UIView {
  
  @code
  
- viewA.layoutCenterY = viewB.layoutCenterY; // sets viewA center along the y-axis to match that of viewB
+ viewA.layoutCenterY = viewB.layoutCenterY // sets viewA center along the y-axis to match that of viewB
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutCenterY: JGLayoutParameter {
+	var layoutCenterY: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .CenterY)
 	}
@@ -223,14 +223,14 @@ extension UIView {
  
  @code
  
- viewA.layoutBaseline = viewB.layoutBaseline; // sets viewA's baseline to match that of viewB
+ viewA.layoutBaseline = viewB.layoutBaseline // sets viewA's baseline to match that of viewB
  
  @endcode
  
  @see https://github.com/JadenGeller/JGLayoutDotSyntax for more information.
  
 	*/
-	var layoutBaseline: JGLayoutParameter {
+	var layoutBaseline: AnyObject! {
 	get {
 		return JGLayoutParameter(object: self, attribute: .Baseline)
 	}
@@ -243,8 +243,8 @@ extension UIView {
  
  @code
  
- viewA.layoutAlignment = viewB.layoutAlignment; // sets viewA's top, bottom, left, and right to that of viewB
- viewC.layoutAlignment = @[viewD.layoutTop, viewD.layoutBottom, viewE.layoutLeft, viewF.layoutRight];
+ viewA.layoutAlignment = viewB.layoutAlignment // sets viewA's top, bottom, left, and right to that of viewB
+ viewC.layoutAlignment = [viewD.layoutTop, viewD.layoutBottom, viewE.layoutLeft, viewF.layoutRight]
  
  @endcode
  
@@ -253,7 +253,7 @@ extension UIView {
 	*/
 	var layoutAlignment: Array<JGLayoutParameter> {
 	get {
-		return [layoutTop, layoutBottom, layoutLeft, layoutRight]
+		return [layoutTop, layoutBottom, layoutLeft, layoutRight] as Array<JGLayoutParameter>
 	}
 	set {
 		assert(newValue.count == 4, "Invalid alignment: Alignment array does not contain 4 objects")
@@ -282,8 +282,8 @@ extension UIView {
  
  @code
  
- viewA.layoutSize = viewB.layoutSize; // sets viewA's width and height to that of viewB
- viewC.layoutSize = @[viewD.layoutWidth, viewE.layoutHeight];
+ viewA.layoutSize = viewB.layoutSize // sets viewA's width and height to that of viewB
+ viewC.layoutSize = [viewD.layoutWidth, viewE.layoutHeight]
  
  @endcode
  
@@ -292,7 +292,7 @@ extension UIView {
 	*/
 	var layoutSize: Array<JGLayoutParameter> {
 	get {
-		return [layoutWidth, layoutHeight]
+		return [layoutWidth, layoutHeight] as Array<JGLayoutParameter>
 	}
 	set {
 		assert(newValue.count == 2, "Invalid size: Size array does not contain 2 objects")
@@ -313,8 +313,8 @@ extension UIView {
  
  @code
  
- viewA.layoutCenter = viewB.layoutCenter; // sets viewA's centerX and centerY to that of viewB
- viewC.layoutCenter = @[viewD.layoutCenterX, viewE.layoutCenterY];
+ viewA.layoutCenter = viewB.layoutCenter // sets viewA's centerX and centerY to that of viewB
+ viewC.layoutCenter = [viewD.layoutCenterX, viewE.layoutCenterY]
  
  @endcode
  
@@ -323,7 +323,7 @@ extension UIView {
 	*/
 	var layoutCenter: Array<JGLayoutParameter> {
 	get {
-		return [layoutCenterX, layoutCenterY]
+		return [layoutCenterX, layoutCenterY] as Array<JGLayoutParameter>
 	}
 	set {
 		assert(newValue.count == 2, "Invalid position: Position array does not contain 2 objects")
@@ -358,34 +358,34 @@ extension UIView {
 	
 	func addLayoutConstraintWithAttribute(attribute: NSLayoutAttribute, parameter: AnyObject?) {
 		removeLayoutConstraintsForAttribute(attribute)
-		if let parameter: AnyObject = parameter {
-			var layoutParameter: JGLayoutParameter!
-			if let layoutParam = parameter as? JGLayoutParameter {
-				layoutParameter = layoutParam
-			} else if let number = parameter as? NSNumber {
-				layoutParameter = JGLayoutParameter(constant: number.doubleValue)
-			}
-			assert(layoutParameter, "Bad parameter input: Parameter input must be either a NSNumber or a JGLayoutParameter or a dynamic constraint.")
-			
-			var receiver: UIView!
-			var layoutConstraint: NSLayoutConstraint!
-			
-			if let object = layoutParameter.object as? UIView {
-				receiver = nearestCommonView([self, object])
-				
-				layoutConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: layoutParameter.relation, toItem: object, attribute: layoutParameter.attribute, multiplier: layoutParameter.multiplier, constant: layoutParameter.constant)
-			} else {
-				receiver = self
-				
-				layoutConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self, attribute: attribute, multiplier: 0.0, constant: layoutParameter.constant)
-			}
-			
-			if layoutParameter.priority != UILayoutPriorityRequired {
-				layoutConstraint.priority = UILayoutPriority(layoutParameter.priority)
-			}
-			
-			receiver.addConstraint(layoutConstraint)
+		if !parameter { return }
+		
+		var layoutParameter: JGLayoutParameter!
+		if let layoutParam = parameter as? JGLayoutParameter {
+			layoutParameter = layoutParam
+		} else if let constant = parameter as? Double {
+			layoutParameter = JGLayoutParameter(constant: constant)
 		}
+		assert(layoutParameter, "Bad parameter input: Parameter input must be either a JGLayoutParameter, NSNumber, Double, Float, or Int.")
+		
+		var receiver: UIView!
+		var layoutConstraint: NSLayoutConstraint!
+		
+		if let object = layoutParameter.object as? UIView {
+			receiver = nearestCommonView([self, object])
+			
+			layoutConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: layoutParameter.relation, toItem: object, attribute: layoutParameter.attribute, multiplier: layoutParameter.multiplier, constant: layoutParameter.constant)
+		} else {
+			receiver = self
+			
+			layoutConstraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .Equal, toItem: self, attribute: attribute, multiplier: 0.0, constant: layoutParameter.constant)
+		}
+		
+		if layoutParameter.priority != UILayoutPriorityRequired {
+			layoutConstraint.priority = UILayoutPriority(layoutParameter.priority)
+		}
+		
+		receiver.addConstraint(layoutConstraint)
 	}
 	
 	func nearestCommonView(views: Array<UIView>) -> UIView {
