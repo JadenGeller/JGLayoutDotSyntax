@@ -64,7 +64,7 @@ extension UIView {
 		}
 		
 		if layoutParameter.priority != UILayoutPriorityRequired {
-			layoutConstraint.priority = UILayoutPriority(layoutParameter.priority)
+			layoutConstraint.priority = layoutParameter.priority
 		}
 		
 		receiver.addConstraint(layoutConstraint)
@@ -82,7 +82,7 @@ extension UIView {
 		}
 		
 		while !UIView.allObjectsInArrayAreEqual(slice) {
-			for i in 0..slice.count {
+			for i in 0..<slice.count {
 				slice[i] = slice[i].superview
 			}
 		}
@@ -104,7 +104,7 @@ extension UIView {
 	
 	func superviewOfOrder(order: Int) -> UIView {
 		var view = self
-		for _ in 0..order {
+		for _ in 0..<order {
 			view = view.superview
 		}
 		return view

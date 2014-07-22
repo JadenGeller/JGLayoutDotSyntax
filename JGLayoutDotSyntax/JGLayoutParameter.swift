@@ -16,7 +16,7 @@ class JGLayoutParameter: NSObject, JGLayoutConstruction {
 	var object: AnyObject?
 	var attribute: NSLayoutAttribute
 	var relation: NSLayoutRelation
-	var priority: Int
+	var priority: UILayoutPriority
 	var constant: Double
 	var multiplier: Double
 	
@@ -24,13 +24,8 @@ class JGLayoutParameter: NSObject, JGLayoutConstruction {
 		return "<JGLayoutParameter; object = \(object); constant = \(constant); multiplier = \(multiplier)>"
 	}
 	
-	/** Returns an initialized JGLayoutParameter. */
-	convenience init() {
-		self.init(object: nil, attribute: .NotAnAttribute, relation: .Equal, priority: UILayoutPriorityRequired, constant: 0.0, multiplier: 1.0)
-	}
-	
 	/** Returns an initialized JGLayoutParameter with all its parameters set. */
-	init(object: AnyObject?, attribute: NSLayoutAttribute, relation: NSLayoutRelation, priority: Int, constant: Double, multiplier: Double) {
+	init(object: AnyObject?, attribute: NSLayoutAttribute, relation: NSLayoutRelation, priority: UILayoutPriority, constant: Double, multiplier: Double) {
 		self.object = object
 		self.attribute = attribute
 		self.relation = relation
@@ -38,6 +33,11 @@ class JGLayoutParameter: NSObject, JGLayoutConstruction {
 		self.constant = constant
 		self.multiplier = multiplier
 		super.init()
+	}
+	
+	/** Returns an initialized JGLayoutParameter. */
+	convenience init() {
+		self.init(object: nil, attribute: .NotAnAttribute, relation: .Equal, priority: UILayoutPriorityRequired, constant: 0.0, multiplier: 1.0)
 	}
 	
 	/** Returns an initialized JGLayoutParameter with the constant set. It is not necessary to use this, however, as the JGLayoutConstruction protocol for the NSNumber class allows NSNumbers to be used as constant JGLayoutParameters.
@@ -78,7 +78,7 @@ class JGLayoutParameter: NSObject, JGLayoutConstruction {
 	}
 	
 	subscript(priority: Int) -> JGLayoutParameter {
-		self.priority = priority
+		self.priority = UILayoutPriority(priority)
 		return self
 	}
 	
