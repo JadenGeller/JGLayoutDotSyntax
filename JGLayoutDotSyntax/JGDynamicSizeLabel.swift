@@ -28,14 +28,14 @@ class JGDynamicSizeLabel: UILabel {
 		return parameter
 	}
 	set {
-		if !newValue {
+		if newValue == nil {
 			parameter = nil
 		} else if let fontSizeMultiplier = newValue as? JGLayoutParameter {
 			if (fontSizeMultiplier.attribute == NSLayoutAttribute.Width) || (fontSizeMultiplier.attribute == NSLayoutAttribute.Height) {
 				parameter = fontSizeMultiplier
 			}
 		} else if let fontSizeMultiplier = newValue as? Double {
-			font = font.fontWithSize(font.pointSize * fontSizeMultiplier)
+			font = font.fontWithSize(font.pointSize * CGFloat(fontSizeMultiplier))
 		}
 	}
 	}
@@ -58,20 +58,24 @@ class JGDynamicSizeLabel: UILabel {
 	}
 	
 	
-	convenience init() {
+	convenience override init() {
 		self.init(frame: CGRectZero)
 	}
 	
-	init(frame: CGRect) {
+	override init(frame: CGRect) {
 		super.init(frame: frame)
 	}
 	
-	override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject: AnyObject]!, context: UnsafePointer<()>) {
+	required init(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
+	override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<Void>) {
 		if let p = parameter {
 			var view = p.object as? UIView
 			var viewObject = object as? CALayer
-			if view && (viewObject == view!.layer) && (keyPath == "bounds") {
-				var size = 0.0
+			if (view != nil) && (viewObject == view!.layer) && (keyPath == "bounds") {
+				var size: CGFloat = 0.0
 				switch p.attribute {
 				case .Width:
 					size = view!.bounds.size.width
@@ -80,7 +84,7 @@ class JGDynamicSizeLabel: UILabel {
 				default:
 					break
 				}
-				font = font.fontWithSize(size * p.multiplier + p.constant)
+				font = font.fontWithSize(size * CGFloat(p.multiplier) + CGFloat(p.constant))
 			}
 		}
 	}

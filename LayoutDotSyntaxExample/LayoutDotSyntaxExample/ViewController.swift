@@ -66,7 +66,7 @@ class ViewController: UIViewController {
 		
 		redView.layout.width = size
 		redView.layout.height = size
-		redView.layout.centerX = view.layout.centerX[UILayoutPriorityDefaultHigh]
+		redView.layout.centerX = view.layout.centerX[JGLayoutPriorityDefaultHigh]
 		redView.layout.centerY = view.layout.centerY
 		redView.layout.left = (blueView.layout.right + 10.0).withRelation(.GreaterThanOrEqual)
 		
