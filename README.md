@@ -43,10 +43,10 @@ subview.layout.width = JGLP(42.0)
 Additionally, JGLayoutDotSyntax allows priority to be specified. In favor of concision, a slightly irregular syntax is used. After a JGLayoutParameter, the subscript operator (`[]`) can be used to specifiy priority of a constraint, if needed. For example, we can lower the priority of centering our subview:
 
 ```swift
-subview.layout.centerX = view.layout.centerX[UILayoutPriorityDefaultLow]
+subview.layout.centerX = view.layout.centerX[JGLayoutPriorityDefaultLow]
 ```
 
-The argument between the brackets should be a UILayoutPriority, which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
+The argument between the brackets should be a JGLayoutPriority (similar to a UILayoutPriority), which is represented by a positive integer, less than or equal to 1000 (as specified in Apple's NSLayoutConstraint documentation).
 
 Further, there exists convenience methods `.layout.alignment` and `.layout.size` and `.layout.center` to quickly set the top, bottom, left, right constraints or the width and height of the sender to that of the receiver.
 
