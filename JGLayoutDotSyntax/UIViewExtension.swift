@@ -15,10 +15,6 @@ extension UIView {
 		return JGLayout(object: self)
 	}
 	
-}
-
-extension UIView {
-	
 	func removeLayoutConstraintsForAttribute(attribute: NSLayoutAttribute) {
 		var view: UIView? = self
 		
@@ -71,6 +67,11 @@ extension UIView {
 		
 		receiver.addConstraint(layoutConstraint)
 	}
+	
+}
+
+// MARK: Private Helper Methods
+private extension UIView {
 	
 	func nearestCommonView(views: Array<UIView>) -> UIView {
 		var closestView = Int.max

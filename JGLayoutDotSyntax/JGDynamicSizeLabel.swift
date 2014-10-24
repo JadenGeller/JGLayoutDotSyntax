@@ -70,7 +70,7 @@ class JGDynamicSizeLabel: UILabel {
 		super.init(coder: aDecoder)
 	}
 	
-	override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<Void>) {
+	override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
 		if let p = parameter {
 			var view = p.object as? UIView
 			var viewObject = object as? CALayer
