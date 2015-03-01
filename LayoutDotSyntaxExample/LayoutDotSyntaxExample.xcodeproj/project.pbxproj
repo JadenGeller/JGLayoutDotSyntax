@@ -18,16 +18,6 @@
 		DAD56D8F1956BA3C003C0857 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD56D8B1956BA3C003C0857 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DAD56D4D1956B7EF003C0857 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DAD56D321956B7EF003C0857 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DAD56D391956B7EF003C0857;
-			remoteInfo = LayoutDotSyntaxExample;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		DA1622C51956FB14000716D3 /* JGLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGLayout.swift; sourceTree = "<group>"; };
 		DAD56D3A1956B7EF003C0857 /* LayoutDotSyntaxExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayoutDotSyntaxExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,7 +26,6 @@
 		DAD56D411956B7EF003C0857 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DAD56D441956B7EF003C0857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAD56D461956B7EF003C0857 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DAD56D4C1956B7EF003C0857 /* LayoutDotSyntaxExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayoutDotSyntaxExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD56D881956BA3C003C0857 /* JGDynamicSizeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGDynamicSizeLabel.swift; sourceTree = "<group>"; };
 		DAD56D891956BA3C003C0857 /* JGLayoutConstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGLayoutConstruction.swift; sourceTree = "<group>"; };
 		DAD56D8A1956BA3C003C0857 /* JGLayoutParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JGLayoutParameter.swift; sourceTree = "<group>"; };
@@ -45,13 +34,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		DAD56D371956B7EF003C0857 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DAD56D491956B7EF003C0857 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				DAD56D3A1956B7EF003C0857 /* LayoutDotSyntaxExample.app */,
-				DAD56D4C1956B7EF003C0857 /* LayoutDotSyntaxExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,24 +113,6 @@
 			productReference = DAD56D3A1956B7EF003C0857 /* LayoutDotSyntaxExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DAD56D4B1956B7EF003C0857 /* LayoutDotSyntaxExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DAD56D591956B7EF003C0857 /* Build configuration list for PBXNativeTarget "LayoutDotSyntaxExampleTests" */;
-			buildPhases = (
-				DAD56D481956B7EF003C0857 /* Sources */,
-				DAD56D491956B7EF003C0857 /* Frameworks */,
-				DAD56D4A1956B7EF003C0857 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DAD56D4E1956B7EF003C0857 /* PBXTargetDependency */,
-			);
-			name = LayoutDotSyntaxExampleTests;
-			productName = LayoutDotSyntaxExampleTests;
-			productReference = DAD56D4C1956B7EF003C0857 /* LayoutDotSyntaxExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +124,6 @@
 				TargetAttributes = {
 					DAD56D391956B7EF003C0857 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					DAD56D4B1956B7EF003C0857 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = DAD56D391956B7EF003C0857;
 					};
 				};
 			};
@@ -182,7 +141,6 @@
 			projectRoot = "";
 			targets = (
 				DAD56D391956B7EF003C0857 /* LayoutDotSyntaxExample */,
-				DAD56D4B1956B7EF003C0857 /* LayoutDotSyntaxExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,13 +152,6 @@
 			files = (
 				DAD56D451956B7EF003C0857 /* Main.storyboard in Resources */,
 				DAD56D471956B7EF003C0857 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DAD56D4A1956B7EF003C0857 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,22 +172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DAD56D481956B7EF003C0857 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DAD56D4E1956B7EF003C0857 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DAD56D391956B7EF003C0857 /* LayoutDotSyntaxExample */;
-			targetProxy = DAD56D4D1956B7EF003C0857 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DAD56D431956B7EF003C0857 /* Main.storyboard */ = {
@@ -351,42 +287,6 @@
 			};
 			name = Release;
 		};
-		DAD56D5A1956B7EF003C0857 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LayoutDotSyntaxExample.app/LayoutDotSyntaxExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LayoutDotSyntaxExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		DAD56D5B1956B7EF003C0857 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LayoutDotSyntaxExample.app/LayoutDotSyntaxExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = LayoutDotSyntaxExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -404,15 +304,6 @@
 			buildConfigurations = (
 				DAD56D571956B7EF003C0857 /* Debug */,
 				DAD56D581956B7EF003C0857 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DAD56D591956B7EF003C0857 /* Build configuration list for PBXNativeTarget "LayoutDotSyntaxExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DAD56D5A1956B7EF003C0857 /* Debug */,
-				DAD56D5B1956B7EF003C0857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

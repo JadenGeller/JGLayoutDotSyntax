@@ -66,7 +66,7 @@ class JGLayoutParameter: NSObject, JGLayoutConstruction {
  
 	*/
 	convenience init(_ number: AnyObject) {
-		self.init(constant: number as Double)
+		self.init(constant: number as! Double)
 	}
 	
 	/** Returns an initialized JGLayoutParameter with the object and attribute set. It is not necessary to use this, however, as the Layout category for the UIView class adds properties with getters that return JGLayoutParameters with the requested attributes.
@@ -155,7 +155,7 @@ extension NSNumber {
 
 
 func + (left: JGLayoutParameter, right: Double) -> JGLayoutParameter {
-	var parameter = left.copy() as JGLayoutParameter
+	var parameter = left.copy() as! JGLayoutParameter
 	parameter.constant += right
 	return parameter
 }
@@ -284,7 +284,7 @@ func -= (left: JGLayoutParameter, right: NSNumber) {
 
 
 func * (left: JGLayoutParameter, right: Double) -> JGLayoutParameter {
-	var parameter = left.copy() as JGLayoutParameter
+	var parameter = left.copy() as! JGLayoutParameter
 	parameter.multiplier = right
 	return parameter
 }
