@@ -1,3 +1,6 @@
+Now supports Swift too! Check it out!
+https://github.com/JadenGeller/JGLayoutDotSyntax/tree/swift (thanks Nicolas Gomollon!)
+
 Introduction
 =================
 
